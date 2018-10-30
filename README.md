@@ -37,58 +37,22 @@
     })
 
 ## 目录结构
-
-  ├── LICENSE
+```
   ├── README.md
   ├── app.js
   ├── app.json
   ├── app.wxss
-  ├── etc
-  │   └── config.js
+  ├── etc             //用于放置各种配置类文件
+  │   └── config.js   //配置文件，目前用于请求URL的配置
   ├── helpers
   │   ├── HttpResource.js
-  │   └── HttpService.js
-  ├── img
-  ├── js
+  │   └── HttpService.js  // 在这里写请求
+  ├── img   
+  ├── js    // js库，自动lodash 和 momnet
   │   ├── lodash.core.js
   │   └── moment.min.js
-  ├── pages
-  │   ├── index
-  │   │   ├── index.js
-  │   │   ├── index.json
-  │   │   ├── index.wxml
-  │   │   └── index.wxss
-  │   └── order
-  │       ├── chart.js
-  │       ├── chart.json
-  │       ├── chart.wxml
-  │       ├── chart.wxss
-  │       ├── list.js
-  │       ├── list.json
-  │       ├── list.wxml
-  │       └── list.wxss
-  ├── plugins
-  │   ├── wx-request
-  │   │   └── lib
-  │   │       ├── core
-  │   │       │   ├── InterceptorManager.js
-  │   │       │   └── WxRequest.js
-  │   │       ├── helpers
-  │   │       │   └── Utils.js
-  │   │       └── index.js
-  │   ├── wx-resource
-  │   │   └── lib
-  │   │       ├── core
-  │   │       │   ├── InterceptorManager.js
-  │   │       │   ├── RouteManager.js
-  │   │       │   └── WxResource.js
-  │   │       ├── helpers
-  │   │       │   └── Utils.js
-  │   │       └── index.js
-  │   ├── wx-service
-  │   │   └── WxService.js
-  │   └── wx-validate
-  │       └── WxValidate.js
-  ├── project.config.json
-  └── style
+  ├── pages   //小程序页面
+  ├── plugins  // 自带模块，实现一些封装
+  └── style  // ui库 自带weui
       └── weui.wxss
+```
