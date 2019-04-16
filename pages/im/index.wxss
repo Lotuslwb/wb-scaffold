@@ -1,0 +1,53 @@
+@import './css/font.wxss';
+@import './css/base.wxss';
+@import './css/style.wxss';
+
+.swiper {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.emoji-btn {
+  width: 26px;
+  height: 26px;
+}
+
+.comm-enter .flex {
+  justify-items: center;
+}
+
+.actions-btn {
+  line-height: 1.2;
+  padding: 0;
+  background: none;
+  color: #ffffff;
+  font-size: 28rpx;
+}
+
+
+.fix-iphonex-button.live-menu {
+  height: 200rpx;
+}
+
+.fix-iphonex-button.voice-Box {
+  height: 420rpx;
+}
+
+.fix-iphonex-button.text-Box {
+  height: 204rpx;
+}
+
+.fix-iphonex-button {
+  bottom: 86rpx !important;
+  z-index: 10;
+}
+
+.fix-iphonex-button::after {
+  content: ' ';
+  position: fixed;
+  bottom: 0 !important;
+  height: 200rpx !important;
+  width: 100%;
+  background: #fff;
+}

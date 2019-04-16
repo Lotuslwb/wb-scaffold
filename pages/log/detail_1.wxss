@@ -1,0 +1,158 @@
+page {
+  /* width: 750rpx; */
+  background: #f7f7fa;
+  overflow-x: hidden;
+}
+.top-box {
+  /* width: 750rpx; */
+  height: 120rpx;
+  background: #ffffff;
+  margin-top: 13rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -3rpx;
+}
+.date-info {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 26rpx;
+}
+.date {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.date-special {
+  font-size: 30rpx;
+  font-weight: normal;
+}
+.date-name {
+  font-size: 40rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.sufferage-box {
+  height: 134rpx;
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  display: flex;
+}
+.title {
+  width: 130rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  background: #f7f7fa;
+  border-radius: 6rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.title.highlight {
+    background: #486e9d;
+    color: #fff;
+}
+.title.multi-line {
+  height: 114rpx;
+}
+.unit {
+  font-size: 26rpx;
+}
+.sufferage {
+  /* width:240rpx; */
+  flex: 1;
+  height: 54rpx;
+  line-height: 54rpx;
+  text-align: center;
+  background: rgba(247, 247, 250, 1);
+  border-radius: 6rpx;
+  font-size: 42rpx;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 40rpx;
+}
+.line {
+  /* width: 750rpx; */
+  width: 100vw;
+  box-sizing: border-box;
+  height: 43rpx;
+  padding: 10rpx 20rpx;
+  display: block;
+  background: #fff;
+}
+.treatment-box {
+  /* height: 208rpx; */
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+/* .treatment-box1 {
+  height: 134rpx;
+} */
+.treat-info {
+  display: flex;
+  align-items: center;
+}
+.margin {
+  margin-top: 20rpx;
+}
+
+.content {
+  flex: 1;
+  /* width: 240rpx; */
+  height: 54rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+  border-radius: 8rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 40rpx;
+}
+.content.highlight {
+  border-color: #486e9d;
+}
+.btn {
+  width: 630rpx;
+  height: 88rpx;
+  background: rgba(72, 110, 157, 1);
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 100rpx auto 127rpx;
+}
+.sup {
+  vertical-align: super;
+}
+.h-line {
+  width: 100%;
+  height: 1rpx;
+  background-color: rgb(230, 230, 230);
+  margin: 30rpx 0 26rpx;
+}
+.copy-btn {
+  color: #486e9d;
+  background: #fff;
+  font-size: 34rpx;
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid #486e9d;
+  border-radius: 10rpx;
+}
+.guancha-info {
+  margin-top: 43rpx;
+}

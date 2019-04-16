@@ -1,0 +1,22 @@
+<view wx:for="{{articleList}}">
+    <view data-url="/pages/news/detail" bindtap="navToDetail" data-id="{{item.id}}" class="list" >
+        <view class="article">
+            <view class="title">{{item.title}}</view>
+            <view class="describe">
+                <view class="writer">西格玛光疗</view>
+                <view class="time">{{item.create_time}}</view>
+            </view>
+        </view>
+        <image class="pic" mode="aspectFill" src="{{item.img}}" />
+    </view>
+    <!-- <navigator url="/pages/news/detail?url={{item.detail_url}}" class="list" >
+        <view class="article">
+            <view class="title">{{item.title}}</view>
+            <view class="describe">
+                <view class="writer">西格玛光疗</view>
+                <view class="time">{{item.create_time}}</view>
+            </view>
+        </view>
+        <image class="pic" src="{{item.img}}" />
+    </navigator> -->
+</view>

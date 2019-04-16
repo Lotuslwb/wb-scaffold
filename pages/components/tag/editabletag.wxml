@@ -1,0 +1,10 @@
+<block wx:if="{{inputVisible}}">
+  <input bindblur="handleInputConfirm" class="tag-input" auto-focus bindinput="handleInputChange" />
+</block>
+<block wx:else>
+  <view class="tag-wrapper" bindtap="showInput">
+    <tag closable="{{false}}"></tag>
+    <image src="../../../img/plus-icon.png" class="plus-icon" />
+  </view>
+
+</block>

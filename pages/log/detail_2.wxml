@@ -1,0 +1,74 @@
+<view class="top-box">
+    <view class="date-info">
+        <image class="icon" src="../../img/guancha-icon.png" />
+        <view class="date">
+            {{month}}
+            <span class="date-special">月</span>
+            {{day}}
+            <span class="date-special">日</span>
+        </view>
+    </view>
+    <view class="date-name">今天是观察日</view>
+</view>
+<block wx:for="{{detail}}" wx:for-index="i">
+    <view class="guancha-info">
+        <view class="sufferage-box">
+            <view class="title">患处</view>
+            <view class="sufferage" data-key="part_id" data-index="i">{{item.part_name}}</view>
+        </view>
+        <view class="addpic-box">
+            <view class="blank"></view>
+            <block wx:if="{{item.img_url}}">
+                <view class="pic-wrapper">
+                    <image mode="aspectFill" class="chosen-pic" src="{{item.img_url}}" data-key="img_url" data-index="{{i}}"></image>
+                    <image src="../../img/close-tag.png" data-value="{{text}}" class="pic-close" bindtap="deletePic" data-index="{{i}}" />
+                </view>
+            </block>
+            <block wx:else>
+                <view class="add-pic" bindtap="chooseImage" data-index="{{i}}">
+                    <image class="add-pic-img" src="../../img/add-pic.png"/>
+                </view>
+            </block>
+        </view>
+        <view class="treatment-box">
+            <view class="treat-info">
+                <block wx:if="{{data_type == 2}}">
+                    <view class="title">治疗时间</view>
+                </block>
+                <block wx:else>
+                    <view class="title multi-line">使用剂量<text class="unit">（J/cm<text class="sup">2</text>)</text>
+                    </view>
+                </block>
+                <view class="content input-content">{{item.time}}</view>
+            </view>
+            <view class="treat-info">
+                <view class="title">患处反应</view>
+                <view class="treat-info-pos">
+                    <picker class="content" data-key="reaction" data-range="all_reaction" bindchange="hanldSelectChange" range="{{all_reaction}}" data-index="{{i}}" data-result="{{detail}}" data-text="detail">
+                        <view class="picker">{{item.reaction?item.reaction:all_reaction[0]}}</view>
+                    </picker>
+                    <image src="../../img/right-arrow.png" class="right-arrow" />
+                </view>
+            </view>
+            <view class="treat-info">
+                <view class="title">效果自评</view>
+                <view class="treat-info-pos">
+                    <picker class="content" data-key="appraise" data-range="all_assessment" bindchange="hanldSelectChange" range="{{all_assessment}}" data-index="{{i}}" data-result="{{detail}}" data-text="detail">
+                        <view class="picker">{{item.appraise?item.appraise:all_assessment[0]}}</view>
+                    </picker>
+                    <image src="../../img/right-arrow.png" class="right-arrow" />
+                </view>
+            </view>
+        </view>
+        <view class="remark-box">
+            <view class="title">备注</view>
+            <textarea placeholder="请填写备注" class="remark-info" bindinput="handleInput" data-key='remark' data-index="{{i}}" data-result="{{detail}}" data-text="detail" value="{{item.remark}}"></textarea>
+        </view>
+        <block wx:if="{{i===0 && detail.length > 1}}">
+            <view class="h-line"></view>
+            <view class="copy-btn" bindtap="copyFirst">一键复制</view>
+        </block>
+    </view>
+</block>
+
+<button class="btn" bindtap="editRecord">保存观察结果</button>

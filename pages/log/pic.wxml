@@ -1,0 +1,82 @@
+<view class="title-box">
+    <view class="title-left">{{part_name}}</view>
+    <view class="title-right">相册模式</view>
+</view>
+<view class="album-box">
+    <view class="pic-row1">
+        <view class="pic-row1-left">
+            <image class="new-pic" mode="aspectFill" src="{{firstRow[0].img_url}}" bindtap="previewImage" id="{{firstRow[0].img_url}}" />
+            <view class="pic-txt">
+                <view class="new-txt">最新照片</view>
+                <view class="">{{firstRow[0].create_time}}</view>
+            </view>
+        </view>
+        <view class="pic-row1-right">
+            <block wx:if="{{firstRow[1]}}">
+                <image class="pic" mode="aspectFill" src="{{firstRow[1].img_url}}" bindtap="previewImage" id="{{firstRow[0].img_url}}"/>
+                <view class="time">{{firstRow[1].create_time}}</view>
+            </block>
+            <block wx:if="{{firstRow[2]}}">
+                <image class="pic" mode="aspectFill" src="{{firstRow[2].img_url}}" bindtap="previewImage" id="{{firstRow[0].img_url}}"/>
+                <view class="time">{{firstRow[2].create_time}}</view>
+            </block>
+        </view>
+    </view>
+    <view class="pic-row">
+        <block wx:for="{{restRow}}">
+            <view class="pic-box">
+                <image class="pic" mode="aspectFill" src="{{item.img_url}}" bindtap="previewImage" id="{{item.img_url}}"/>
+                <view class="time">{{item.create_time}}</view>
+            </view>
+        </block>
+    </view>
+
+    <!-- <view class="pic-row">
+        <view class="pic-row-left">
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+        </view>
+        <view class="pic-box">
+            <image class="pic" src="../../img/hurt-pic.png" />
+            <view class="time">2018-11-25</view>
+        </view>
+    </view>
+    <view class="pic-row">
+        <view class="pic-row-left">
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+        </view>
+        <view class="pic-box">
+            <image class="pic" src="../../img/hurt-pic.png" />
+            <view class="time">2018-11-25</view>
+        </view>
+    </view>
+    <view class="pic-row">
+        <view class="pic-row-left">
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+            <view class="pic-box">
+                <image class="pic" src="../../img/hurt-pic.png" />
+                <view class="time">2018-11-25</view>
+            </view>
+        </view>
+        <view class="pic-box">
+            <image class="pic" src="../../img/hurt-pic.png" />
+            <view class="time">2018-11-25</view>
+        </view>
+    </view> -->
+</view>

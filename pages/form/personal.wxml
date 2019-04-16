@@ -1,0 +1,85 @@
+<!-- <view class="info-box">
+    <view class="user-info user-info1">
+        <view class="title">姓名:</view>
+        <input type="text" value="{{name}}" data-key='name' bindinput='handleInput' placeholder="请输入姓名" class="content input-content" />
+    </view>
+</view> -->
+<view class="info-box">
+    <view class="user-info">
+        <view class="title">手机号:</view>
+        <view class="content input-content">{{mobile}}</view>
+        <button class="authorize-btn" open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">点击授权</button>
+    </view>
+    <view class="user-info">
+        <view class="title">性别:</view>
+        <radio-group class="sex-radio" bindchange="hanldRadioChange">
+            <label class="sex" wx:for="{{radioArry}}">
+                <radio class="radio" value="{{item.value}}" checked="{{item.checked}}" />
+                <image src="../../img/hook.png" class="radio-pic" wx:if="{{item.checked}}" />
+                <image src="../../img/oval.png" class="radio-pic" wx:else />
+                <view class="radio-text">{{item.text}}</view>
+            </label>
+        </radio-group>
+    </view>
+</view>
+<!-- <view class="info-box">
+    <view class="user-info">
+        <view class="title">生日:</view>
+        <picker class="content" mode="date" bindchange="handleInput" data-key='birthday'>
+            <view class="picker">{{birthday?birthday:'请选择生日'}}</view>
+        </picker>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">城市:</view>
+        <picker class="content"  mode="region" bindchange="handleInput" value="{{city}}" data-key="city">
+            <view class="picker">
+                {{city&&city[0]?(city[0]+city[1]+city[2]):'请选择城市'}}
+            </view>
+          </picker>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">职业:</view>
+        <picker class="content" data-key="job" data-range="all_job" bindchange="hanldSelectChange" range="{{all_job}}">
+            <view class="picker">{{job?job:'请选择职业'}}</view>
+        </picker>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">个性签名:</view>
+        <input type="text" data-key='sign' bindinput='handleInput' placeholder="请填写你的个性签名" class="content input-content" value='{{sign}}' />
+    </view>
+</view>
+<view class="focus-box">
+    <view class="focus-title">关注的分类</view>
+    <view class="focus-label">
+        <button wx:for="{{all_attention_type}}" class="focus-labelSelected {{!item.selected?'active':''}}" data-value="{{item}}" data-key="attention_type" bindtap='changeAttentionType'>
+            {{item.value}}
+        </button>
+    </view>
+</view> -->
+<view class="submit" bindtap="editInfo">提交</view>
+<view class="tip">
+    <view>登陆即代表您已经同意</view>
+    <view class="emphasize" bindtap="showModal">《光疗隐私协议》</view>
+</view>
+<block wx:if="{{visible}}">
+    <view
+        class="md-modal modal-msg md-modal-transition {{visible ? 'md-show' : ''}}"
+    >
+        <view class="md-modal-inner">
+            <view class="md-content">
+                <rich-text type = "text" nodes="{{proposal}}"></rich-text>
+            </view>
+            <button
+                class="md-btn"
+                bindtap="hideModal"
+            >关闭</button>
+        </view>
+    </view>
+</block>
+<view
+    class="md-overlay"
+    wx:if="{{visible}}"
+></view>

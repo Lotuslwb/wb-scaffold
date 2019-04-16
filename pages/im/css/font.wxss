@@ -1,0 +1,70 @@
+
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_h3dvrhb0ao2sm7vi.eot?t=1498897387962'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_h3dvrhb0ao2sm7vi.eot?t=1498897387962#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_h3dvrhb0ao2sm7vi.woff?t=1498897387962') format('woff'), /* chrome, firefox */
+  url('//at.alicdn.com/t/font_h3dvrhb0ao2sm7vi.ttf?t=1498897387962') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_h3dvrhb0ao2sm7vi.svg?t=1498897387962#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-voicefill:before { content: "\e6f0"; }
+
+.icon-picfill:before { content: "\e72c"; }
+
+.icon-zanting:before { content: "\e606"; }
+
+.icon-iconzhenghe28:before { content: "\e729"; }
+
+.icon-recordfill:before { content: "\e7a4"; }
+
+.icon-addpeople_fill:before { content: "\e6e1"; }
+
+.icon-brush_fill:before { content: "\e6e5"; }
+
+.icon-camera_fill:before { content: "\e6e7"; }
+
+.icon-clock_fill:before { content: "\e6e8"; }
+
+.icon-computer_fill:before { content: "\e6eb"; }
+
+.icon-empty_fill:before { content: "\e6f7"; }
+
+.icon-feedback_fill:before { content: "\e6fa"; }
+
+.icon-group_fill:before { content: "\e6ff"; }
+
+.icon-homepage_fill:before { content: "\e702"; }
+
+.icon-homepage:before { content: "\e703"; }
+
+.icon-live_fill:before { content: "\e708"; }
+
+.icon-mine_fill:before { content: "\e70e"; }
+
+.icon-people_fill:before { content: "\e715"; }
+
+.icon-people:before { content: "\e716"; }
+
+.icon-playon_fill:before { content: "\e718"; }
+
+.icon-task_fill:before { content: "\e732"; }
+
+.icon-undo:before { content: "\e739"; }
+
+.icon-search:before { content: "\e741"; }
+
+.icon-packup:before { content: "\e749"; }
+
+.icon-unfold:before { content: "\e74a"; }
+
+.icon-wen:before { content: "\e634"; }
+
+.icon-da:before { content: "\e637"; }

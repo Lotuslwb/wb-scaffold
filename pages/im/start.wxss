@@ -1,0 +1,162 @@
+page {
+  width: 750rpx;
+  background: #f7f7fa;
+}
+
+.top-box {
+  background: #ffffff;
+}
+
+.banner {
+  width: 750rpx;
+  height: 428rpx;
+}
+
+.course-info {
+  padding: 29rpx 30rpx 22rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 19rpx;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13rpx;
+}
+
+.describe {
+  font-size: 24rpx;
+  color: #999999;
+  margin-right: 20rpx;
+}
+
+.sort {
+  display: flex;
+  margin-bottom: 14rpx;
+}
+
+.live {
+  font-size: 18rpx;
+  color: #ce3632;
+  padding: 3rpx 14rpx;
+  border: 1rpx solid #ce3632;
+  border-radius: 4rpx;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+}
+
+.clock-icon {
+  width: 25rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+
+.countdown-time {
+  width: 68rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  background: #f39935;
+  border-radius: 6px;
+  font-size: 24rpx;
+  color: #ffffff;
+  text-align: center;
+  margin-right: 10rpx;
+}
+
+.sign-info {
+  width: 750rpx;
+  height: 70rpx;
+  padding: 0 30rpx;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.signer-box {
+  display: flex;
+  align-items: center;
+}
+
+.signer-pic {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.teacher-box {
+  padding: 40rpx 50rpx;
+  margin-top: 28rpx;
+  background: #ffffff;
+}
+
+.teacher {
+  font-size: 34rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 38rpx;
+}
+
+.teacher-info {
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 50rpx;
+}
+
+.teacher-name {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 50rpx;
+}
+
+.course-form {
+  margin: 48rpx auto;
+}
+
+.stage {
+  display: flex;
+}
+
+.stage1 {
+  width: 170rpx;
+}
+
+.btn {
+  width: 690rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background: rgba(243, 153, 53, 1);
+  border-radius: 10rpx;
+  border: none;
+  margin: 110rpx auto 62rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.disable {
+  -webkit-filter: grayscale(100%);
+}
+
+.actions-btn {
+  color: #f19937;
+  border-radius: 7rpx;
+  padding: 0 10rpx;
+  margin-left: 10rpx;
+  margin-top: -40rpx;
+  line-height: 36rpx;
+  border: #f19937 1rpx solid;
+  background: none;
+  font-size: 24rpx;
+  float: right;
+}

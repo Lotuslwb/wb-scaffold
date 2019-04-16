@@ -1,0 +1,29 @@
+<image class="line" src="../../img/cureCycle-line.png" />
+<view class="setting-box">
+    <view class="title">
+        <view class="{{day_type==1 ? 'title-blue': 'title-gray'}}">两日模式</view>
+        <switch class="switch" checked="{{day_type==2}}" bindchange="dayChange" />
+        <view class="{{day_type==2 ? 'title-blue': 'title-gray'}}">三日模式</view>
+    </view>
+    <view class="txt">
+        <span class="txt-special">两日模式</span>
+        一天治疗，一天观察;
+        <span class="txt-special">三日模式</span>
+        一天治疗，一天观察，一天休息。请参考医生根据您的病情制定的建议进行选择；如果医生没有给出明显建议，系统默认为
+        <span class="txt-special">两日模式</span>
+    </view>
+</view>
+<image class="line" src="../../img/dataMode-line.png" />
+<view class="setting-box">
+    <view class="title">
+        <view class="{{data_type==1 ? 'title-blue': 'title-gray'}}">剂量模式</view>
+        <switch class="switch" checked="{{data_type==2}}" bindchange="dataChange" />
+        <view class="{{data_type==2 ? 'title-blue': 'title-gray'}}">时间模式</view>
+    </view>
+    <view class="txt">
+        <span class="txt-special">剂量模式</span>
+        记录每次治疗剂量;
+        <span class="txt-special">时间模式</span>
+        记录每次治疗时间。不同的光疗仪记录不同的治疗数据，请根据您使用的光疗仪进行选择
+    </view>
+</view>

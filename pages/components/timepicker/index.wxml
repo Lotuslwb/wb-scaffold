@@ -1,0 +1,7 @@
+<view class="tui-picker-content">
+  <picker mode="multiSelector" value="{{test}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{timeArray}}">
+    <view class="">
+      {{timeArray[0][test[0]]}}:{{timeArray[1][test[1]]}}
+    </view>
+  </picker>
+</view>

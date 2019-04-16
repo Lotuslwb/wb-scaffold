@@ -1,0 +1,33 @@
+<view class="info-box">
+    <view class="user-info">
+        <view class="title">姓名:</view>
+        <input type="text" value="{{username}}" data-key='username' bindinput='handleInput' placeholder="请输入姓名" class="content input-content" />
+    </view>
+    <view class="user-info">
+        <view class="title">手机号:</view>
+        <input type="text" value="{{mobile}}" data-key='mobile' bindinput='handleInput' placeholder="请输入手机号" class="content input-content" />
+    </view>
+    <view class="user-info">
+        <view class="title">年龄:</view>
+        <input type="text" value="{{age}}" data-key='age' bindinput='handleInput' placeholder="请输入年龄" class="content input-content" />
+    </view>
+    <view class="user-info">
+        <view class="title">性别:</view>
+        <radio-group class="sex-radio" bindchange="hanldRadioChange">
+            <label class="sex" wx:for="{{radioArry}}">
+                <radio class="radio" value="{{item.value}}" checked="{{item.checked}}" />
+                <image src="../../img/hook.png" class="radio-pic" wx:if="{{item.checked}}" />
+                <image src="../../img/oval.png" class="radio-pic" wx:else />
+                <view class="radio-text">{{item.text}}</view>
+            </label>
+        </radio-group>
+    </view>
+    <view class="user-info user-info1">
+        <view class="title">城市:</view>
+        <picker class="content" mode="region" bindchange="handleInput" value="{{city}}" data-key="city">
+            <view class="picker">{{city&&city[0]?(city[0]+city[1]+city[2]):'请选择城市'}}</view>
+        </picker>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+</view>
+<view class="submit" bindtap='submitHandle'>报名</view>

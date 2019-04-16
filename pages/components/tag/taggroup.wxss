@@ -1,0 +1,10 @@
+.tags {
+  display: flex;
+  /* margin: 50rpx 60rpx 0; */
+  flex-wrap: wrap;
+  /* padding-bottom:10rpx; */
+}
+.tag {
+  margin-bottom: 40rpx;
+  margin-right: 80rpx;
+}

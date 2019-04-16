@@ -1,0 +1,6 @@
+<view class="tags">
+  <tag wx:for="{{tags}}" tag="{{item}}" text="{{texts[index]}}" size="{{size}}" class="tag" bind:deleteTag="handleDeleteTag"></tag>
+  <block wx:if="{{canAdd}}">
+    <editabletag class="tag" bind:addTag="handleAddTag"></editabletag>
+  </block>
+</view>

@@ -1,0 +1,24 @@
+<view wx:for="{{list}}">
+    <view wx:if="{{item.status==3 && (item.role==1||item.role==-1)}}" data-url="{{item.detail_url}}" data-type="web" bindtap="navToDetail" class="list">
+        <view class="article">
+            <view class="tags" wx:if="{{item.status==3}}">结束</view>
+            <view class="title">{{item.name}}</view>
+            <view class="describe">
+                <view class="writer">{{item.presenter}}</view>
+                <view class="time">{{item.create_time}}</view>
+            </view>
+        </view>
+        <image class="pic" mode="aspectFill" src="{{item.img_url}}" />
+    </view>
+    <view wx:else data-url="/pages/im/start?id={{item.id}}" bindtap="navToDetail" class="list">
+        <view class="article">
+            <view class="tags" wx:if="{{item.status==3}}">结束</view>
+            <view class="title">{{item.name}}</view>
+            <view class="describe">
+                <view class="writer">{{item.presenter}}</view>
+                <view class="time">{{item.create_time}}</view>
+            </view>
+        </view>
+        <image class="pic" mode="aspectFill" src="{{item.img_url}}" />
+    </view>
+</view>

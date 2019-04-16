@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "基础病历",
+  "component": true,
+  "usingComponents": {
+    "taggroup": "../components/tag/taggroup"
+  }
+}

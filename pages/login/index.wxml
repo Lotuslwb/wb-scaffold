@@ -1,0 +1,5 @@
+<image class="banner" src="../../img/login-banner.png" />
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="btn btn-wx">微信授权登录</button>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="btn btn-sj" wx:if="{{false}}">
+    手机号登录
+</button>

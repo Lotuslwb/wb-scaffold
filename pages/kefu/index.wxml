@@ -1,0 +1,42 @@
+<view class="service-box">
+    <image src="../../img/hotline-icon.png" class="service-icon" data-tel='{{mobile}}' bindtap="makephone" />
+    <view class="service-icon online-icon">
+        <button open-type="contact" class="contact-btn"></button>
+        <image src="../../img/online-icon.png" class="service-image" />
+    </view>
+</view>
+<!-- <view class="Q-box">常见问题</view> -->
+<view class="Q-header">
+    <view class="Q-tip">
+        <view class="text-dec"></view>
+        <view class="title-tip">常见问题</view>
+        <view class="text-dec"></view>
+    </view>
+    <view class="Q-category">
+        <view wx:for="{{categories}}" wx:key="{{item.id}}" class="item {{currentCategoryIndex === index ? 'active': ''}}"  bindtap="changeCategory" data-index="{{index}}">
+            {{item.text}}
+            <view class="border"></view>
+        </view>
+    </view>
+</view>
+<block wx-if="{{categories[currentCategoryIndex].questions && categories[currentCategoryIndex].questions.length}}">
+    <view class="Q-list" wx:for="{{categories[currentCategoryIndex].questions}}" bindtap="toggle" data-index="{{index}}">
+        <view class="Q">
+            Q：<rich-text type = "text" nodes="{{item.title}}"></rich-text>
+        </view>
+        <block wx:if="{{!item.open}}">
+            <image src="../../img/top-arrow.png" class="top-arrow" />
+        </block>
+        <block wx:else>
+            <image src="../../img/down-arrow.png" class="top-arrow" />
+        </block>
+        <block wx:if="{{item.open}}">
+            <view class="A">
+                A：<rich-text type = "text" nodes="{{item.content}}"></rich-text>
+            </view>
+        </block>
+    </view>
+</block>
+<block wx:else>
+<view class="no-data">该类别下暂无问题</view>
+</block>

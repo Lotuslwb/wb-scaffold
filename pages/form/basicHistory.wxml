@@ -1,0 +1,211 @@
+
+<view wx:if="{{currentPage === 'basic'}}">
+    <view wx:if="{{firstBasic}}" class="title-wrapper">
+        <view class="text-dec"></view>
+        <view class="title-tip">请完善您的基础病例</view>
+        <view class="text-dec"></view>
+    </view>
+    <view class="history-box">
+        <view class="history-info">
+            <view class="title">姓名</view>
+            <input type="text" value="{{user_medical.user_name}}" data-key='user_name' data-text="user_medical" data-obj="user_medical" bindinput='handleInput' placeholder="请输入姓名" class="content input-content" />
+        </view>
+    </view>
+    <view class="history-box">
+        <view class="history-info">
+            <view class="title">疾病类型</view>
+            <picker class="content" data-key="medical_type" data-obj="user_medical" data-text="user_medical" data-range="medical_type" bindchange="hanldSelectChange" range="{{medical_type}}">
+                <view class="picker">{{user_medical.medical_type?user_medical.medical_type:'请选择疾病类型'}}</view>
+            </picker>
+            <image src="../../img/right-arrow.png" class="right-arrow" />
+        </view>
+    </view>
+    <view class="history-box">
+        <!-- <view class="history-info history-info1">
+            <view class="title">患者性别</view>
+            <view class="content">{{user_medical.sex == 1 ? '男': '女'}}</view>
+        </view> -->
+        <view class="history-info">
+            <view class="title">患者出生日期</view>
+            <picker class="content" mode="date" bindchange="handleInput" data-key='birthday' data-obj="user_medical" data-text="user_medical">
+                <view class="picker">{{user_medical.birthday?user_medical.birthday:'请选择生日'}}</view>
+            </picker>
+            <image src="../../img/right-arrow.png" class="right-arrow" />
+        </view>
+    </view>
+    <view class="history-box">
+        <view class="history-info">
+            <view class="title">首次发病年龄</view>
+            <input type="number" bindinput='handleInput' class="content" data-key='age' data-obj="user_medical" value="{{user_medical.age}}" />
+            <!-- <picker class="content" bindchange="handleInput" data-key='age' range="{{ages}}" data-obj="user_medical" data-text="user_medical">
+                <view class="picker">{{user_medical.age?user_medical.age:'请选择发病年龄'}}</view>
+            </picker>
+            <image src="../../img/right-arrow.png" class="right-arrow" /> -->
+        </view>
+    </view>
+
+    <view class="history-box choose-box">
+        <view class="title-info">
+            <view class="choose-title">曾用过的疗法</view>
+            <view class="subtitle">（多选）</view>
+        </view>
+        <view>
+            <checkbox-group bindchange="useWaysChange" class="option-box" data-key="use_ways" data-obj="user_medical" data-text="user_medical">
+                <label class="option sm" wx:for="{{use_ways}}" wx:key="value" >
+                    <checkbox class="checkbox" value="{{item.value}}" checked="{{item.selected}}"/>
+                    <image src="../../img/checked.png" class="checkbox-pic" wx:if="{{item.selected}}" />
+                    <image src="../../img/unchecked.png" class="checkbox-pic" wx:else />
+                    <view class="option-content">{{item.value}}</view>
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+
+    <view class="history-box choose-box">
+        <view class="title-info">
+            <view class="choose-title">对光疗的了解</view>
+            <view class="subtitle">（多选）</view>
+        </view>
+        <view>
+            <checkbox-group bindchange="knowsChange" class="option-box" data-key="knows" data-obj="user_medical">
+                <label class="option" wx:for="{{knows}}" wx:key="value" >
+                    <checkbox class="checkbox" value="{{item.value}}" checked="{{item.selected}}"/>
+                    <image src="../../img/checked.png" class="checkbox-pic" wx:if="{{item.selected}}" />
+                    <image src="../../img/unchecked.png" class="checkbox-pic" wx:else />
+                    <view class="option-content">{{item.value}}</view>
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+    <view class="submit" bindtap="editBasicInfo">{{firstBasic ? '下一步' : '保存'}}</view>
+</view>
+<view wx:if="{{currentPage === 'case'}}">
+    <view wx:if="{{firstCase}}" class="title-wrapper">
+        <view class="text-dec"></view>
+        <view class="title-tip">请完善您的基础病例</view>
+        <view class="text-dec"></view>
+    </view>
+    <view wx:else>
+        <view class="history-box">
+            <view class="history-info" bindtap="gotoBasic">
+                <view class="title">编辑基础病例</view>
+                <image src="../../img/right-arrow.png" class="right-arrow-lg" />
+            </view>
+        </view>
+    </view>
+    <view class="focus-box">
+        <view class="title-info inline">
+            <view class="choose-title">选择患处部位</view>
+            <view class="subtitle">（请点选患处，全身可选择多处）</view>
+        </view>
+        <view class="part-title">
+            <view class="part-title-body {{current===0 ? 'active' : 'inactive'}}" bindtap="changeCurrent" data-index="0">人体总图</view>
+            <view class="part-title-head {{current!==0 ? 'active' : 'inactive'}}" bindtap="changeCurrent" data-index="1">面部详情</view>
+        </view>
+        <view class="part-wrapper">
+            <swiper class="part-main" bindchange="changeSwiper" current="{{current}}">
+                <swiper-item class="part-main-item">
+                    <image src="../../img/part-body.png" class="part-main-body" />
+                    <block wx:for="{{sexBody}}">
+                        <image src="../../img/part-{{item.part_key}}.png" style="position: absolute;width:{{item.width}}rpx; height: {{item.height}}rpx; top: {{item.top}}rpx; left: {{item.left}}rpx; opacity: {{item.active || item.part_key == '116' ? '1;' : '0;'}}" bindtap="togglePart" data-key="{{item.part_key}}" />
+                    </block>
+                </swiper-item>
+                <swiper-item class="part-main-item">
+                    <image src="../../img/part-head.png" class="part-main-head" />
+                    <block wx:for="{{head}}">
+                        <image src="../../img/part-{{item.part_key}}.png" style="position: absolute;width:{{item.width}}rpx; height: {{item.height}}rpx; top: {{item.top}}rpx; left: {{item.left}}rpx; opacity: {{item.active || item.part_key == '313' ? '1;' : '0;'}}" bindtap="togglePart" data-key="{{item.part_key}}" />
+                    </block>
+                </swiper-item>
+            </swiper>
+            <image src="../../img/guide-left.png" class="guide-img left" bindtap="toPreCurrent" />
+            <image src="../../img/guide-left.png" class="guide-img right" bindtap="toNextCurrent" />
+            <checkbox-group bindchange="toggleSelectAllPart">
+                <label class="checkbox-single-wrapper">
+                    <checkbox class="checkbox-single" value="1" checked="{{allPartSelected}}" />
+                    <image src="../../img/hook.png" class="checkbox-single-pic" wx:if="{{allPartSelected}}" />
+                    <image src="../../img/oval.png" class="checkbox-single-pic" wx:else />
+                    <view class="checkbox-single-text">全选模式</view>
+                </label>
+            </checkbox-group>
+        </view>
+        <block wx:if="{{showTip}}">
+            <view class="tips">
+                <image src="../../img/tip-icon.png" class="tip-icon"></image>
+                <view class="tip-info">
+                    <view class="tip-title mark">重要提示</view>
+                    <view class="tip-content">
+                        <text class="mark">眼部</text>及<text class="mark">男性生殖器</text>部位不适合接受光疗请注意 严密保护这些部位。如果您的患处在这周边， 治疗时或遵医嘱。
+                    </view>
+                    <!-- <view class="close-tip" bindtap="closeTip">我知道了</view> -->
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{part.length}}">
+            <view class="chosen-part">
+                <view class="chosen-part-label">您已选择</view>
+                <view class="chosen-part-content">
+                    <taggroup tags="{{part}}" texts="{{textPart}}" size="sm" canAdd="{{false}}" bind:updateTag="changePart"></taggroup>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <image class="line" src="../../img/cureCycle-line.png" />
+    <view class="setting-box">
+        <radio-group class="sex-radio small" bindchange="handleDayTypeChange">
+            <label class="sex" wx:for="{{dayRadioArray}}">
+                <radio class="radio" value="{{item.value}}" checked="{{item.checked}}" />
+                <image src="../../img/hook.png" class="radio-pic" wx:if="{{item.checked}}" />
+                <image src="../../img/oval.png" class="radio-pic" wx:else />
+                <view class="radio-text {{item.checked ? 'title-blue' : ''}}">{{item.text}}</view>
+            </label>
+        </radio-group>
+        <view class="txt">
+            <span class="txt-special">两日模式</span>
+            一天治疗，一天观察;
+            <span class="txt-special">三日模式</span>
+            一天治疗，一天观察，一天休息。
+            <span class="txt-special">自定义模式</span>
+            使用者自主决定今日要录入的内容。
+            请参考医生根据您的病情制定的建议进行选择；如果医生没有给出明显建议，系统默认为
+            <span class="txt-special">两日模式</span>
+        </view>
+    </view>
+    <image class="line" src="../../img/dataMode-line.png" />
+    <view class="setting-box">
+        <radio-group class="sex-radio" bindchange="handleDataTypeChange">
+            <label class="sex" wx:for="{{dataRadioArray}}">
+                <radio class="radio" value="{{item.value}}" checked="{{item.checked}}" />
+                <image src="../../img/hook.png" class="radio-pic" wx:if="{{item.checked}}" />
+                <image src="../../img/oval.png" class="radio-pic" wx:else />
+                <view class="radio-text {{item.checked ? 'title-blue' : ''}}">{{item.text}}</view>
+            </label>
+        </radio-group>
+        <view class="txt">
+            <span class="txt-special">剂量模式</span>
+            记录每次治疗剂量;
+            <span class="txt-special">时间模式</span>
+            记录每次治疗时间。不同的光疗仪记录不同的治疗数据，请根据您使用的光疗仪进行选择
+        </view>
+    </view>
+
+    <view class="history-box">
+        <view class="history-info">
+            <view class="title">复诊周期</view>
+            <picker class="content" data-key="return_day" data-range="returnPeriod" data-field="value" bindchange="hanldSelectChange" range="{{returnPeriod}}" range-key="text">
+                <view class="picker">{{return_day?return_day + '天':'不设定'}}</view>
+            </picker>
+            <image src="../../img/right-arrow.png" class="right-arrow" />
+        </view>
+    </view>
+    <view class="focus-box">
+        <view class="title-info inline">
+            <view class="choose-title">光疗期用药</view>
+            <view class="subtitle">（每个标签写一种药）</view>
+        </view>
+        <view class="use-drugs">
+            <taggroup tags="{{use_drug}}" texts="{{use_drug}}" bind:updateTag="changeUseDrug"></taggroup>
+        </view>
+    </view>
+    <view class="submit" bindtap="editBasicCase">保存基础病历</view>
+</view>

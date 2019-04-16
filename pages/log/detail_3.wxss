@@ -1,0 +1,145 @@
+page {
+  /* width: 750rpx; */
+  background: #f7f7fa;
+}
+.top-box {
+  /* width: 750rpx; */
+  height: 120rpx;
+  background: #ffffff;
+  margin-top: 13rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date-info {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 26rpx;
+}
+.date {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.date-special {
+  font-size: 30rpx;
+  font-weight: normal;
+}
+.date-name {
+  font-size: 40rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.review-box {
+  height: 362rpx;
+  background: #ffffff;
+  margin-top: 20rpx;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-info {
+  display: flex;
+  align-items: center;
+}
+.title {
+  width: 130rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  background: #f7f7fa;
+  border-radius: 6rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  font-weight: bold;
+  margin-right: 40rpx;
+}
+.content {
+  width: 520rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  padding-left: 25rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+  border-radius: 8px;
+  font-size: 28rpx;
+  color: #666666;
+}
+.advice-box {
+  height: 418rpx;
+  background: #ffffff;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.advice-title {
+  font-size: 28rpx;
+  color: #1a1a1a;
+  font-weight: bold;
+  margin-bottom: 29rpx;
+}
+.advice-content {
+  width: 690rpx;
+  height: 282rpx;
+  padding: 17rpx 20rpx;
+  box-sizing: border-box;
+}
+.btn {
+  width: 630rpx;
+  height: 88rpx;
+  background: rgba(72, 110, 157, 1);
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 80rpx auto 39rpx;
+}
+.line {
+  width: 750rpx;
+  height: 23rpx;
+}
+.bottom-box {
+  width: 690rpx;
+  height: 120rpx;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 40rpx auto 40rpx;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.bottom-btn {
+  height: 54rpx;
+  line-height: 54rpx;
+  padding: auto 15rpx;
+  box-sizing: border-box;
+  background: rgba(232, 54, 50, 1);
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+}
+.bottom-content {
+  width: 449rpx;
+  font-size: 24rpx;
+  color: #333333;
+  line-height: 30rpx;
+}
+.position {
+  position: relative;
+}
+.right-arrow {
+  position: absolute;
+  top: 20rpx;
+  right: 23rpx;
+  width: 12rpx;
+  height: 22rpx;
+  transform: rotate(90deg);
+}

@@ -1,0 +1,56 @@
+page {
+    width: 750rpx;
+    background: #F7F7FA;
+    margin: 0;
+    padding-top: 20rpx;
+    padding-bottom: 174rpx;
+}
+
+.list {
+    width: 690rpx;
+    height: 198rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0rpx 4rpx 10rpx 0rpx rgba(0, 0, 0, 0.08);
+    border-radius: 10rpx;
+    margin: 0 auto 12rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article {
+    width: 448rpx;
+    margin-right: 41rpx;
+}
+
+.pic {
+    width: 160rpx;
+    height: 120rpx;
+}
+
+.title {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+    line-height: 48rpx;
+
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.describe {
+    font-size: 24rpx;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    margin-top: 10rpx;
+}
+
+.writer {
+    margin-right: 30rpx;
+}

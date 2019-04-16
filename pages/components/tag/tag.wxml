@@ -1,0 +1,6 @@
+<view class="tag {{size=='sm'?'sm':''}}">
+  <view class="tag-text">{{text}}</view>
+  <block wx:if="{{closable}}">
+    <image src="../../../img/close-tag.png" data-value="{{tag}}" class="tag-close" bindtap="closeTag" />
+  </block>
+</view>

@@ -1,0 +1,46 @@
+<view class="top-box">
+    <view class="date-info">
+        <image class="icon" src="../../img/review-icon.png" />
+        <view class="date">
+            {{month}}
+            <span class="date-special">月</span>
+            {{day}}
+            <span class="date-special">日</span>
+        </view>
+    </view>
+    <view class="date-name">今天是复诊日</view>
+</view>
+<view class="review-box">
+    <view class="review-info">
+        <view class="title">复诊编号</view>
+        <input type="text" value="{{number}}" data-key='number' bindinput='handleInput' placeholder="请输入复诊编号" class="content input-content" disabled="{{!isEditable}}" />
+    </view>
+    <view class="review-info position">
+        <view class="title">复诊时间</view>
+        <view class="content">{{time}}</view>
+        <!-- <picker class="content" mode="date" bindchange="handleInput" data-key='time'>
+            <view class="picker">{{time?time:'请选择复诊时间'}}</view>
+        </picker>
+        <image src="../../img/right-arrow.png" class="right-arrow" /> -->
+    </view>
+    <view class="review-info">
+        <view class="title">复诊医院</view>
+        <input type="text" value="{{hospital}}" data-key='hospital' bindinput='handleInput' placeholder="请输入复诊医院" class="content input-content" disabled="{{!isEditable}}" />
+    </view>
+    <view class="review-info">
+        <view class="title">复诊医生</view>
+        <input type="text" value="{{doctor}}" data-key='doctor' bindinput='handleInput' placeholder="请输入复诊医生" class="content input-content" disabled="{{!isEditable}}" />
+    </view>
+</view>
+<view class="advice-box">
+    <view class="advice-title">医生诊断和建议</view>
+    <textarea placeholder="请填写医生诊断和建议" data-key='remark' bindinput='handleInput' value="{{remark}}" class="content advice-content" disabled="{{!isEditable}}"></textarea>
+</view>
+<block wx:if="{{isEditable}}">
+    <button class="btn" bindtap="editRecord">保存复诊记录</button>
+    <image class="line" src="../../img/or-line.png" />
+    <view class="bottom-box">
+        <view class="bottom-content">我今天没有去复诊，我想改一天去复诊。</view>
+        <button class="bottom-btn" bindtap="goToChoose">选择复诊日期</button>
+    </view>
+</block>

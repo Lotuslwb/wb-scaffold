@@ -7,32 +7,14 @@ import __config from './etc/config'
 
 App({
   onLaunch() {
-    this.login();
+    wx.showShareMenu()
+    const res = wx.getSystemInfoSync();
+    console.log(res.model);
+    this.globalData.isIphX = (res.model.indexOf('iPhone X') > -1);
   },
-  onShow() {
-    console.log('ApponShow');
-  },
+  onShow() {},
   onHide() {
 
-  },
-  login() {
-    return this.WxService.login()
-      .then(data => {
-        return this.HttpService.onLogin({
-          code: data.code
-        })
-      }).then(res => {
-        var openid = res.data.openid;
-        return this.WxService.setStorage({
-          key: "openid",
-          data: openid
-        }).then((res) => {
-          if (this.userInfoReadyCallback) {
-            this.userInfoReadyCallback(openid)
-          }
-          return openid;
-        })
-      });
   },
   globalData: {
     userInfo: null,
@@ -49,4 +31,7 @@ App({
   }),
   WxService: new WxService,
   __config,
+  globalData: {
+    room_id: null,
+  }
 })

@@ -1,0 +1,138 @@
+.service-page {
+    width: 750rpx;
+    background: #F7F7FA;
+    margin: 0;
+    padding: 20rpx 0 150rpx;
+}
+
+.service-box {
+    /* width: 430rpx; */
+    padding: 0 170rpx;
+    height: 220rpx;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-icon {
+    width: 109rpx;
+    height: 140rpx;
+    position: relative;
+}
+
+.online-icon {
+    /* margin-right: 185rpx; */
+}
+
+.Q-box {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+    line-height: 87rpx;
+    margin-left: 32rpx;
+}
+
+.Q-list {
+    background: #ffffff;
+    border-top: solid 1rpx #E6E6E6;
+    border-bottom: solid 1rpx #E6E6E6;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.Q {
+    font-size: 30rpx;
+    color: #333333;
+    line-height: 1.5;
+    /* line-height: 87rpx; */
+    padding: 30rpx 60rpx 30rpx 30rpx;
+    /* padding-left: 30rpx; */
+    border-bottom: solid 1rpx #E6E6E6;
+    display: flex;
+}
+
+.A {
+    font-size: 24rpx;
+    color: #666666;
+    /* line-height: 36rpx; */
+    padding: 29rpx 59rpx 31rpx 50rpx;
+    display: flex;
+}
+
+.top-arrow {
+    position: absolute;
+    top: 37rpx;
+    right: 29rpx;
+    width: 22rpx;
+    height: 12rpx;
+}
+
+.bottom-arrow {
+    transform: rotate(180deg);
+}
+
+.contact-btn {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.service-image {
+    width: 109rpx;
+    height: 140rpx;
+}
+.Q-header {
+    background: #fff;
+    margin: 20rpx 0;
+}
+.Q-tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 104rpx;
+    /* margin-bottom: -20rpx; */
+  }
+  .text-dec {
+    width: 28rpx;
+    height: 0;
+    border-top: 3rpx solid rgb(176, 176, 176);
+  }
+  .title-tip {
+    margin: 0 15rpx;
+    font-size: 34rpx;
+    color: #224b7e;
+  }
+
+.Q-category {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.Q-category .item {
+    font-size: 30rpx;
+    padding: 0 30rpx;
+    color: #666666;
+}
+.Q-category .item .border {
+    margin-top:  18rpx;
+    height: 5rpx;
+}
+.Q-category .item.active {
+    color: #224b7e;
+}
+.Q-category .item.active .border {
+    background: #224b7e;
+}
+.no-data {
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    justify-content: center;
+}

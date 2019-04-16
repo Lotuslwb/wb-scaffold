@@ -1,0 +1,65 @@
+<view class="info-box">
+    <view class="user-info user-info1">
+        <view class="title">姓名:</view>
+        <input type="text" name="name" placeholder="请输入姓名" class="content input-content" />
+    </view>
+</view>
+
+<view class="info-box">
+    <view class="user-info">
+        <view class="title">手机号:</view>
+        <input type="text" name="telephone" placeholder="请输入手机号" class="content input-content" />
+        <button class="authorize-btn">点击授权</button>
+    </view>
+    <view class="user-info">
+        <view class="title">性别:</view>
+        <view class="sex-radio">
+            <view class="sex">
+                <image src="../../img/oval.png" class="radio-pic" />
+                <view class="radio-text">男</view>
+            </view>
+            <view class="sex">
+                <image src="../../img/hook.png" class="radio-pic" />
+                <view class="radio-text">女</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="info-box">
+    <view class="user-info">
+        <view class="title">生日:</view>
+        <select name="birthday" id="" class="select"></select>
+        <view class="content">请选择生日</view>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">城市:</view>
+        <view class="content">请选择城市</view>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">职业:</view>
+        <view class="content">请选择职业</view>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+    <view class="user-info">
+        <view class="title">个性签名:</view>
+        <view class="content">请填写你的个性签名</view>
+        <image src="../../img/right-arrow.png" class="right-arrow" />
+    </view>
+</view>
+
+<view class="focus-box">
+    <view class="focus-title">关注的分类</view>
+    <view class="focus-label">
+        <button class="focus-labelSelected">白癜风</button>
+        <button class="focus-labelSelected focus-labelUnselected">白癜风</button>
+        <button class="focus-labelSelected">白癜风</button>
+        <button class="focus-labelSelected">白癜风</button>
+        <button class="focus-labelSelected">白癜风</button>
+        <button class="focus-labelSelected">白癜风</button>
+    </view>
+</view>
+
+<view class="submit">提交</view>

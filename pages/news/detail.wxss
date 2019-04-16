@@ -1,0 +1,47 @@
+page {
+    width: 750rpx;
+    background: #F7F7FA;
+    padding: 33rpx 30rpx;
+    box-sizing: border-box;
+}
+.title {
+    width: 690rpx;
+    font-size: 42rpx;
+    font-weight: bold;
+    line-height: 52rpx;
+    color: #333333;
+    margin: auto;
+    margin-bottom: 35rpx;
+}
+.describe {
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40rpx;
+}
+.writer {
+    color: #163F73;
+    margin-right: 21rpx;
+}
+.time {
+    color: #666666;
+}
+.content {
+    background: #ffffff;
+    padding: 36rpx 22rpx;
+    font-size: 30rpx;
+    color: #333333;
+    line-height: 60rpx;
+}
+.text {
+    margin-bottom: 40rpx;
+}
+.subtitle {
+    color: #1A1A1A;
+    font-weight: bold;
+    padding: 40rpx 0;
+}
+.pic {
+    width: 646rpx;
+    height: 352rpx;
+}

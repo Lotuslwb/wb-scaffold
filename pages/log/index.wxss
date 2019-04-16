@@ -1,0 +1,95 @@
+.myCalendar {
+  margin-top: 15rpx;
+}
+
+.myCalendar-header,
+.myCalendar-weeks {
+  margin: 0 !important;
+  width: 750rpx;
+  background: #ffffff;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.myCalendar-weeks {
+  box-sizing: border-box;
+  padding: 0 25rpx;
+}
+
+.myCalendar-board {
+  width: 689rpx;
+  margin: 40rpx auto 0;
+  /* border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx; */
+  background: #ffffff;
+  /* background-size: 690rpx 480rpx; */
+}
+
+.calendar-signs {
+  width: 689rpx;
+  margin: auto;
+  background: #ffffff;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  padding: 40rpx 30rpx 48rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 22rpx;
+}
+
+.calendar-signs .icon {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 20rpx;
+  vertical-align: sub;
+}
+
+.calendar-signs .item {
+  width: 33%;
+  min-width: 33%;
+  max-width: 33%;
+  flex: 1;
+  margin-bottom: 20rpx;
+}
+
+.info {
+  color: rgba(153, 153, 153, 1);
+  font-size: 24rpx;
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+}
+
+.warning-box {
+  margin: 80rpx auto;
+  width: 690rpx;
+  height: 128rpx;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 10rpx;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-warning {
+  width: 60rpx;
+  height: 80rpx;
+  margin-right: 40rpx;
+}
+
+.log-text {
+  line-height: 30rpx;
+  font-size: 24rpx;
+  max-width: 514rpx;
+}
+
+.red {
+  color: red;
+}
+
+.warning-box .txt {
+  margin-top: 10rpx;
+  color: rgba(153, 153, 153, 1);
+}

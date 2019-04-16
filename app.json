@@ -1,14 +1,61 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/sendMsg/sendMsg",
-    "pages/readMsg/readMsg",
-    "pages/result/result_success"
+    "pages/im/index",
+    "pages/im/start",
+    "pages/im/list",
+    "pages/bluetooth/index",
+    "pages/login/index",
+    "pages/kefu/index",
+    "pages/form/personal",
+    "pages/form/signup",
+    "pages/form/setting",
+    "pages/form/basicHistory",
+    "pages/news/list",
+    "pages/news/detail",
+    "pages/log/index",
+    "pages/log/detail_1",
+    "pages/log/detail_2",
+    "pages/log/detail_3",
+    "pages/log/detail_4",
+    "pages/log/pic",
+    "pages/personal/form"
   ],
+  "requiredBackgroundModes": ["audio"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "偷偷告诉你  say something",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#103a6f",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "img/home-icon.png",
+        "selectedIconPath": "img/home-icon-active.png"
+      },
+      {
+        "text": "光疗日志",
+        "pagePath": "pages/log/index",
+        "iconPath": "img/log-icon.png",
+        "selectedIconPath": "img/log-icon-active.png"
+      },
+      {
+        "text": "光疗课堂",
+        "pagePath": "pages/im/list",
+        "iconPath": "img/people-icon.png",
+        "selectedIconPath": "img/people-icon-active.png"
+      },
+      {
+        "text": "客服",
+        "pagePath": "pages/kefu/index",
+        "iconPath": "img/kefu-icon.png",
+        "selectedIconPath": "img/kefu-icon-active.png"
+      }
+    ]
   }
 }

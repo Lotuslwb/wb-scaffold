@@ -1,0 +1,88 @@
+<view class="top-box">
+    <image class="banner" src="{{roomInfo.img_url}}" />
+    <view class="course-info">
+        <view class="title">
+            {{roomInfo.name}}
+            <view class="float-actions">
+                <button open-type="share" class="actions-btn">转发</button>
+            </view>
+        </view>
+        <view class="time">
+            <view class="describe">时间</view>
+            <view class="describe">{{roomInfo.start_time}}</view>
+        </view>
+        <view class="sort" wx:if="{{false}}">
+            <view class="describe">分类</view>
+            <view class="live">直播专场</view>
+        </view>
+        <view class="countdown" wx:if="{{!(timerInfo.day==0 && timerInfo.hour==0 && timerInfo.min==0 && timerInfo.sec==0) }}">
+            <image class="clock-icon" src="../../img/clock-icon.png" />
+            <view class="describe">倒计时</view>
+            <view class="countdown-time">{{timerInfo.day}}天</view>
+            <view class="countdown-time">{{timerInfo.hour}}时</view>
+            <view class="countdown-time">{{timerInfo.min}}分</view>
+            <view class="countdown-time">{{timerInfo.sec}}秒</view>
+        </view>
+    </view>
+    <view class="sign-info" wx:if="{{roomInfo.sign_people.length>0}}">
+        <view class="signer-box">
+            <view class="describe">最近报名</view>
+            <view class="signerpic-box">
+                <block wx:for="{{roomInfo.sign_people}}">
+                    <image class="signer-pic" src="{{item}}" />
+                </block>
+            </view>
+        </view>
+        <view class="describe">报名人数 {{roomInfo.people_number}}</view>
+    </view>
+</view>
+<view class="teacher-box">
+    <view class="teacher">主讲人</view>
+    <view class="teacher-info">
+        <span class="teacher-name">{{roomInfo.presenter}}</span>
+        {{roomInfo.presenter_desc}}
+    </view>
+</view>
+<view class="teacher-box">
+    <view class="teacher">课程介绍</view>
+    <rich-text class="teacher-info" nodes="{{roomInfo.desc}}"></rich-text>
+    <!-- <view class="course-form" wx:if="{{false}}">
+        <view class="teacher-name">课堂形式：</view>
+        <view class="stage">
+            <view class="teacher-info stage1">阶段(1）</view>
+            <view class="teacher-info">医生讲解PPT</view>
+        </view>
+        <view class="stage">
+            <view class="teacher-info stage1">阶段(2）</view>
+            <view class="teacher-info">医生回答 患者自由提问</view>
+        </view>
+    </view>
+    <view>
+        <view class="teacher-name">参与方式：</view>
+        <view class="teacher-info">您可点击下方“进入”按钮进行报名操作</view>
+    </view> -->
+</view>
+<button class="btn" wx:if="{{roomInfo.role==2}}" bindtap='gotoHandle' data-url='/pages/im/index'>
+    进入直播
+</button>
+<block wx:elif="{{roomInfo.role==3}}">
+    <button class="btn" wx:if="{{roomInfo.status!=3}}" bindtap='gotoHandle' data-url='/pages/im/index'>
+        进入直播
+    </button>
+    <button wx:else class="btn disable">直播结束</button>
+</block>
+<block wx:else>
+    <block wx:if="{{roomInfo.status!=3}}">
+        <button class="btn" wx:if="{{roomInfo.is_auth==0}}" bindtap='gotoHandle' data-url='/pages/form/signup'>
+            点击报名
+        </button>
+        <button class="btn disable" wx:elif="{{roomInfo.is_auth==-1}}">审核中...</button>
+        <block wx:elif="{{roomInfo.is_auth==1}}">
+            <button class="btn disable" wx:if="{{roomInfo.status==1}}">直播未开始</button>
+            <button class="btn" wx:elif="{{roomInfo.status==2}}" bindtap='gotoHandle' data-url='/pages/im/index'>
+                进入直播
+            </button>
+        </block>
+    </block>
+    <button wx:else class="btn disable">直播结束</button>
+</block>

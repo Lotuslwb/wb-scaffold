@@ -1,0 +1,114 @@
+<view class="info-box">
+    <image class="info-box-bg" mode="aspectFill" src="../../img/index-header-bg.png" />
+    <!-- <navigator class="setting-box" url="/pages/form/personal" open-type="navigate">个人中心</navigator> -->
+    <view class="setting-box" bindtap='gotoHandle' data-url='/pages/form/personal'>个人中心</view>
+    <view class="info-content">
+        <open-data type="userAvatarUrl" class="nickpic"></open-data>
+        <view class="info-txt">
+            <view class="info-title">
+                {{homeData.user.nickName}}
+                <image class="vip-icon" src="../../img/vip.png" wx:if="{{user.level==2}}" />
+            </view>
+            <view class="info-des">您已经坚持光疗{{homeData.sign_count || 0}}天。加油幺！</view>
+        </view>
+    </view>
+</view>
+<view class="panel-box">
+    <view class="log-box">
+        <view class="title-box">
+            <view class="title-left">
+                <text class="title-line"></text>
+                <text class="title-txt">我的光疗日志</text>
+            </view>
+            <view class="title-right">
+                <!-- <image src="../../img/setting-icon.png" mode="widthFix" class="setting-icon" /> -->
+            </view>
+        </view>
+        <view class="log-content">
+            <view class="log-content-item" bindtap="chooseToDaka">
+                <block wx:if="{{homeData.have_records == -1}}">
+                    <view class="have-matters"></view>
+                </block>
+                <image src="../../img/home-daka.png" mode='widthFix' class="action-icon" />
+                <text class="content-txt">今日事项</text>
+            </view>
+            <view class="log-content-item" bindtap='gotoHandle' data-url='/pages/log/index' data-type='navbar'>
+                <image src="../../img/home-log.png" mode='widthFix' class="action-icon" />
+                <text class="content-txt">光疗日志</text>
+            </view>
+            <view class="log-content-item" bindtap='gotoHandle' data-url='/pages/form/basicHistory'>
+                <image src="../../img/home-basic.png" mode='widthFix' class="action-icon" />
+                <text class="content-txt">基础病历</text>
+            </view>
+        </view>
+    </view>
+    <view class="class-box">
+        <view class="title-box" bindtap='gotoHandle' data-type='navbar' data-url='/pages/im/list'>
+            <view class="title-left">
+                <text class="title-line"></text>
+                <text class="title-txt">我的光疗课堂</text>
+            </view>
+            <view class="title-right">
+                <image src="../../img/arrow-icon-2.png" mode="widthFix" class="more-icon" />
+            </view>
+        </view>
+        <view class="class-content">
+            <view class="show-box show-large-box"bindtap='gotoHandle' data-url='/pages/im/start?id={{homeData.classroom_hot.id}}'>
+                <view class="show-title">
+                    <image src="../../img/hot-icon.png" mode="widthFix" class="hot-icon" />
+                </view>
+                <view class="show-content withHot" data-id="{{homeData.classroom_hot.id}}">
+                    <image src="{{homeData.classroom_hot.presenter_avatar}}" mode="aspectFill" class="pic" />
+                    <view class="des">
+                        <view class="name">{{homeData.classroom_hot.presenter}}</view>
+                        <view class="info">专场</view>
+                        <view class="time">{{homeData.classroom_hot.start_time}}</view>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view class="show-box show-box-after" wx:for="{{homeData.classroom_list}}" data-detail="{{item.detail_url}}" data-url='/pages/news/detail' data-type='web' bindtap='gotoHandle'>
+                    <view class="show-content">
+                        <image src="{{item.presenter_avatar}}" mode="aspectFill" class="pic" />
+                        <view class="des">
+                            <view class="name red">往期精彩</view>
+                            <view class="name">{{item.presenter}}</view>
+                            <view class="info">专场</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{true}}">
+    <swiper-item wx:for="{{homeData.banner}}" data-id='{{item.id}}'>
+        <image src="{{item.img}}" class="slide-image" mode='aspectFill' />
+    </swiper-item>
+</swiper>
+<view class="news-box">
+    <view class="title-box">
+        <view class="title-left">
+            <text class="title-line"></text>
+            <text class="title-txt">知识普及</text>
+        </view>
+        <view class="title-right">
+            <view class="more-box">
+                <navigator class="more-txt" url="/pages/news/list" hover-class="navigator-hover" open-type="navigate">
+                    更多
+                </navigator>
+                <image src="../../img/arrow-icon-2.png" mode="widthFix" class="more-icon" />
+            </view>
+        </view>
+    </view>
+    <view data-detail="{{item.detail_url}}" data-url='/pages/news/detail' data-type='web' bindtap='gotoHandle' class="section-box" wx:for="{{homeData.article}}">
+        <view class="txt">
+            <view class='title'>{{item.title}}</view>
+            <view class="info">
+                <image src="../../img/eye-icon.png" class="eye-icon" mode="widthFix" />
+                {{item.look_number}}人阅读
+            </view>
+        </view>
+        <image src="{{item.img}}" class='pic' mode="aspectFill" />
+    </view>
+</view>

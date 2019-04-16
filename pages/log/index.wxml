@@ -1,0 +1,48 @@
+<calendar class="myCalendar" cell-size='50' weeks-type='cn' active-type='square'
+  header-style="myCalendar-header" weeks-style='myCalendar-weeks' daysColor="{{days_style}}" show-more-days
+  bind:dayClick="handleDayClick" bind:prevMonth="handleClickPrev" bind:nextMonth="handleClickNext"
+  bind:dayLongPress="handleDayLongPress">
+    <view class="calendar-signs">
+        <view class="item">
+            <image class='icon' src="./icon/none.png" mode="scaleToFill"></image>
+            <text>未观察/治疗</text>
+        </view>
+        <view class="item" >
+            <image class='icon' src="./icon/ok.png" mode="scaleToFill"></image>
+            <text>完整观察/治疗</text>
+        </view>
+        <view class="item" >
+            <image class='icon' src="./icon/half-ok.png" mode="scaleToFill"></image>
+            <text>不完整观察/治疗</text>
+        </view>
+        <view class="item">
+            <image class='icon' src="./icon/watch.png" mode="scaleToFill"></image>
+            <text>观察</text>
+        </view>
+        <view class="item">
+            <image class='icon' src="./icon/heart.png" mode="scaleToFill"></image>
+            <text>治疗</text>
+        </view>
+        <view class="item">
+            <image class='icon' src="./icon/doctor.png" mode="scaleToFill"></image>
+            <text>复诊</text>
+        </view>
+        <view class="item">
+            <image class='icon' src="./icon/recheck-day.png" mode="scaleToFill"></image>
+            <text>复诊日</text>
+        </view>
+        <view class="item">
+            <image class='icon' src="./icon/recheck-week.png" mode="scaleToFill"></image>
+            <text>复诊周</text>
+        </view>
+    </view>
+</calendar>
+
+<view class="info">点击单元格可查看详情，长按单元格可设置复诊日期</view>
+<view class="warning-box">
+    <image src="./icon/log-warning.png" class="log-warning" mode="aspectFill" />
+    <view class="log-text">
+        <view class="red">复诊提醒</view>
+        <view class="txt">您的复诊安排非常合理，请记住您随时可以根据医生要求增加新的复诊安排</view>
+    </view>
+</view>

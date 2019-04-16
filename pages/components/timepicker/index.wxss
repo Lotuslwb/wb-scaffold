@@ -1,0 +1,12 @@
+.content {
+  flex: 1;
+  /* width: 240rpx; */
+  height: 54rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+  border-radius: 8rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 40rpx;
+}

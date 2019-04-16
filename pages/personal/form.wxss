@@ -1,0 +1,169 @@
+.page1 {
+    width: 750rpx;
+    margin: 0;
+    padding-bottom: 134rpx;
+    border-bottom: solid 1rpx #E6E6E6;
+    background: #F7F7FA;
+}
+
+.info-box {
+    padding-top: 20rpx;
+}
+
+.user-info {
+    position: relative;
+    width: 750rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1rpx #E6E6E6;
+}
+
+.user-info1 {
+    border: none;
+}
+
+.title {
+    width: 180rpx;
+    height: 100%;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333333;
+    padding-left: 35rpx;
+    box-sizing: border-box;
+}
+
+.content {
+    width: 570rpx;
+    height: 100%;
+    line-height: 100rpx;
+    padding-left: 5rpx;
+    font-size: 28rpx;
+    color: #999999;
+    border: 0;
+    outline: none;
+}
+
+.input-content {
+    color: #000000;
+}
+
+::-webkit-input-placeholder {
+    color: #999999;
+    font-size: 28rpx;
+}
+
+.authorize-btn {
+    width: 155rpx;
+    height: 38rpx;
+    background: linear-gradient(0deg, rgba(16, 58, 111, 1) 0%, rgba(74, 111, 158, 1) 100%);
+    border-radius: 8rpx;
+    border: 0;
+    font-size: 24rpx;
+    color: #ffffff;
+    line-height: 38rpx;
+    position: absolute;
+    top: 31rpx;
+    right: 30rpx;
+}
+
+.sex-radio {
+    width: 570rpx;
+    height: 100%;
+    line-height: 100rpx;
+    padding-left: 5rpx;
+    border: 0;
+    font-size: 28rpx;
+    display: flex;
+}
+
+.sex {
+    display: flex;
+    align-items: center;
+    margin-right: 79rpx;
+}
+
+.radio-pic {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 11rpx;
+}
+
+.radio-text {
+    color: #999999;
+}
+
+.select {
+    width: 570rpx;
+    height: 99rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 39rpx;
+    right: 30rpx;
+    width: 12rpx;
+    height: 22rpx;
+}
+
+.focus-box {
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+
+.focus-title {
+    color: #333333;
+    font-size: 28rpx;
+    font-weight: bold;
+    padding: 35rpx 31rpx 0;
+}
+
+.focus-label {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50rpx 30rpx 10rpx 0rpx;
+}
+
+.focus-labelSelected {
+    font-size: 26rpx;
+    color: #ffffff;
+    background: linear-gradient(0deg, rgba(16, 58, 111, 1) 0%, rgba(74, 111, 158, 1) 100%);
+    border-radius: 10rpx;
+    padding: 18rpx 38rpx;
+    margin: 0 20rpx 40rpx 60rpx;
+    border: none;
+}
+
+.focus-labelUnselected {
+    font-size: 24rpx;
+    color: #333333;
+    background: #ffffff;
+    border: solid 1rpx #999999;
+    border-radius: 10rpx;
+    padding: 18rpx 38rpx;
+}
+
+.submit {
+    width: 630rpx;
+    height: 68rpx;
+    background: linear-gradient(0deg, rgba(16, 58, 111, 1) 0%, rgba(74, 111, 158, 1) 100%);
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 68rpx;
+    margin: 86rpx auto 0;
+}

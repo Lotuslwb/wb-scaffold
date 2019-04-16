@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.1.0",
-	"appid": "wx30de0e724bb7ab5d",
-	"projectname": "%E6%9C%89%E8%AF%9D%E8%A6%81%E8%AF%B4",
+	"appid": "wx92a3d222a4b07756",
+	"projectname": "WebIM2",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,7 +28,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -36,81 +35,100 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "admin",
-					"pathName": "pages/admin/index/index",
+					"name": "登陆",
+					"pathName": "pages/login/index",
 					"query": ""
 				},
 				{
-					"id": 1,
-					"name": "orderlist",
-					"pathName": "pages/order/list",
+					"id": -1,
+					"name": "消息详情",
+					"pathName": "pages/news/detail",
 					"query": ""
 				},
 				{
 					"id": 2,
-					"name": "productlist",
-					"pathName": "pages/product/list",
-					"query": ""
+					"name": "直播列表",
+					"pathName": "pages/im/list",
+					"query": "",
+					"scene": null
 				},
 				{
-					"id": 3,
-					"name": "boxlist",
-					"pathName": "pages/store/boxlist",
+					"id": -1,
+					"name": "消息详情",
+					"pathName": "pages/news/detail",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "storelist",
-					"pathName": "pages/store/list",
+					"name": "基础病历",
+					"pathName": "pages/form/basicHistory",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "order",
-					"pathName": "pages/order/list",
+					"name": "日志首页",
+					"pathName": "pages/log/index",
 					"query": ""
 				},
 				{
-					"id": 3,
-					"name": "orderStatistic",
-					"pathName": "pages/order/chart",
+					"id": 6,
+					"name": "个人表单",
+					"pathName": "pages/form/personal",
 					"query": ""
 				},
 				{
-					"id": 4,
-					"name": "productStatistic",
-					"pathName": "pages/product/chart",
-					"query": ""
+					"id": 7,
+					"name": "直播开始",
+					"pathName": "pages/im/start",
+					"query": "id=52&code=oVFfCFIG"
 				},
 				{
-					"id": 5,
-					"name": "operation",
-					"pathName": "pages/operation/list",
+					"id": 8,
+					"name": "设置",
+					"pathName": "pages/form/signup",
 					"query": ""
 				},
 				{
 					"id": 9,
-					"name": "apply",
-					"pathName": "pages/apply/index",
-					"query": "type=&&mch_id=2&store_id=2&roleType=99"
+					"name": "detail_4",
+					"pathName": "pages/log/detail_4",
+					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "person",
-					"pathName": "pages/store/person",
+					"id": 10,
+					"name": "detail_1",
+					"pathName": "pages/log/detail_1",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "detail_2",
+					"pathName": "pages/log/detail_2",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "detail_3",
+					"pathName": "pages/log/detail_3",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "form",
-					"pathName": "pages/operator/index/form",
+					"name": "相册模式",
+					"pathName": "pages/log/pic",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "apply",
-					"pathName": "pages/apply/index",
-					"query": "type=&&mch_id=2&store_id=2&roleType=99"
+					"name": "直播列表",
+					"pathName": "pages/im/list",
+					"query": "id=25"
+				},
+				{
+					"id": -1,
+					"name": "直播开始",
+					"pathName": "pages/im/list",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,134 @@
+<view class="top-box">
+	<view class="date-info">
+		<image class="icon" src="../../img/cure-icon.png" />
+		<view class="date">
+			{{month}}
+			<span class="date-special">月</span>
+			{{day}}
+			<span class="date-special">日</span>
+		</view>
+	</view>
+	<view class="date-name">今天是治疗日</view>
+</view>
+<view wx:for="{{detail}}" wx:for-index="i">
+	<view class="guancha-info">
+		<view class="sufferage-box">
+			<view class="title">患处</view>
+			<view class="sufferage" data-key="{{item.part_id}}">{{item.part_name}}</view>
+		</view>
+		<block wx:if="{{prev[0].time}}">
+			<image class="line" src="../../img/last-line.png" />
+			<view class="treatment-box">
+				<block wx:if="{{prev[i].time}}">
+					<view class="treat-info">
+							<block wx:if="{{data_type == 2}}">
+								<view class="title">治疗时间</view>
+							</block>
+							<block wx:else>
+								<view class="title multi-line">使用剂量<text class="unit">（J/cm<text class="sup">2</text>)</text>
+								</view>
+							</block>
+						<view class="content">{{prev[i].time}}</view>
+					</view>
+				</block>
+				<block wx:if="{{prev[i].reaction}}">
+					<view class="treat-info margin">
+						<view class="title">患处反应</view>
+						<view class="content">{{prev[i].reaction}}</view>
+					</view>
+				</block>
+			</view>
+		</block>
+		<image class="line" src="../../img/current-line.png" />
+		<view class="treatment-box treatment-box1">
+			<view class="treat-info">
+				<block wx:if="{{data_type == 2}}">
+					<view class="title highlight">治疗时间</view>
+				</block>
+				<block wx:else>
+					<view class="title multi-line highlight">
+						使用剂量<text class="unit">（J/cm<text class="sup">2</text>)</text>
+					</view>
+				</block>
+				<block wx:if="{{data_type == 2}}">
+					<timepicker class="content input-content highlight" time="{{item.time}}" data-index="{{i}}" bind:updateTime="changeTime"></timepicker>
+				</block>
+				<block wx:else>
+					<input
+						type="digit"
+						bindinput='handleInput'
+						placeholder=""
+						class="content input-content highlight"
+						data-key="time"
+						data-index="{{i}}"
+						data-result="{{detail}}"
+						data-text="detail"
+						value="{{item.time}}"
+					/>
+				</block>
+			</view>
+			<block wx:if="{{i===0 && detail.length > 1}}">
+				<view class="h-line"></view>
+				<view class="copy-btn" bindtap="copyFirst">一键复制</view>
+			</block>
+		</view>
+	</view>
+</view>
+<!-- <view wx:for="{{current}}" wx:for-item="detailArr" wx:for-index="i">
+	<view class="guancha-info">
+		<view class="sufferage-box">
+			<view class="title">患处</view>
+			<block wx:for="{{detailArr}}" wx:for-index="j">
+				<view class="sufferage" data-key="{{item.part_id}}">{{item.part_name}}</view>
+			</block>
+		</view>
+		<block wx:if="{{prev[0].time}}">
+			<image class="line" src="../../img/last-line.png" />
+			<view class="treatment-box">
+				<block wx:if="{{prev[i][0].time}}">
+					<view class="treat-info">
+						<view class="title multi-line">
+							<block wx:if="{{data_type == 2}}">治疗时间<text class="unit">（秒）</text></block>
+							<block wx:else>使用剂量<text class="unit">（J/cm<text class="sup">2</text>)</text></block>
+						</view>
+						<block wx:for="{{prev[i]}}">
+							<view class="content">{{item.time}}</view>
+						</block>
+					</view>
+				</block>
+				<block wx:if="{{prev[i][0].reaction}}">
+					<view class="treat-info margin">
+						<view class="title">患处反应</view>
+						<block wx:for="{{prev[i]}}">
+							<view class="content">{{item.reaction}}</view>
+						</block>
+					</view>
+				</block>
+			</view>
+		</block>
+		<image class="line" src="../../img/current-line.png" />
+		<view class="treatment-box treatment-box1">
+			<view class="treat-info">
+				<view class="title multi-line">
+					<block wx:if="{{data_type == 2}}">治疗时间<text class="unit">（秒）</text></block>
+					<block wx:else>使用剂量<text class="unit">（J/cm<text class="sup">2</text>)</text></block>
+				</view>
+				<block wx:for="{{detailArr}}" wx:for-index="j">
+					<input
+					 type="digit"
+					 bindinput='handleInput'
+					 placeholder=""
+					 class="content input-content"
+					 data-key="time"
+					 data-index="{{i*2+j}}"
+					 data-result="{{detail}}"
+					 data-text="detail"
+					 value="{{item.time}}"
+					/>
+				</block>
+			</view>
+		</view>
+	</view>
+</view> -->
+<button class="btn" bindtap="editRecord">保存治疗结果</button>
+

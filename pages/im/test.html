@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<body class="BdSwitch">
+
+    <div class="live flex-column">
+
+        <!--文字图片 直播区域 start-->
+        <div class="live-content sub ">
+            <a class="btn_load_history btnLoadSpeakEnd" href="javascript:;">
+                <i></i>
+            </a>
+            <audio id="audioPlayer" autoplay="autoplay">Your browser does not support the audio element.您的浏览器不支持 audio
+                标签。</audio>
+            <a class="btn_load_history btnLoadSpeak" href="javascript:;">
+                <i></i>
+            </a>
+            <div class="zhibo_admin">
+                <a href="./index.php?i=3&c=entry&topic_id=6&do=topic_manager&m=dg_chat">
+                    <span class="admin-img"><img src="http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoa8DU2icq1cNTiakaribON2XricaMPeicOacMzPnVR8hPbqbBribH4ibECziaxSKVIckREwoa63ico1G7M68w/132"
+                            alt="" width="100%"></span>
+                </a>
+            </div>
+            <div class="live-start">
+                本次直播于2018/10/25 10:00开始
+            </div>
+            <!-- <div class="live-help yel help"><i class="iconfont icon-feedback_fill disi"></i> 点击查看帮助说明</div> -->
+
+            <style>
+                .my-scpoer{ background: #fff; margin: 1rem; text-align: center; padding:15px; border-radius: 5px;}
+					.my-scpoer-tit{ padding-bottom: 15px; border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px;  }
+					.my-scpoer .scpoer{ background: #f19937; color: #fff; border-radius: 5px; padding:5px 0; width:
+							50%;font-size: 16px; display: block; margin:15px auto 0;}
+				</style>
+            <!-- 管理员的说话区 -->
+            <ul class="live-bubble" id="speakBubbles">
+
+            </ul>
+
+            <div style="height: 57px;"></div>
+        </div>
+        <!--文字图片 直播区域 end-->
+
+        <!--底部bar start-->
+        <div class="live-menu bb gridXt">
+            <ul class="flex tc lastno">
+                <li class="gridYr voice-btn"><i class="iconfont icon-voicefill"></i> 语音</li>
+                <li class="gridYr text-btn"><i class="iconfont icon-iconzhenghe28"></i> 文字</li>
+                <li class="gridYr midea-btn"><i class="iconfont icon-recordfill"></i> 图片</li>
+                <!-- <li class="gridYr comm-write2"><i class="iconfont icon-iconzhenghe28"></i> 讨论</li> -->
+            </ul>
+        </div>
+
+        <!--底部bar end-->
+
+
+        <div class="fast-set">
+            <ul class="small-font">
+                <li class="pptBtn">课件</li>
+                <li><a href="./index.php?i=3&c=entry&refresh=1&do=index&m=dg_chat" style="color:#fff;">更多直播</a></li>
+                <li class=""><a href="javaScript:;" class="scpoer" style="color:#fff;">邀请卡</a></li>
+
+
+                <li><a style="color:#fff;" href="javascript:;" onclick="window.location.href = './index.php?i=3&c=entry&topic_id=6&do=chat&m=dg_chat&_='+new Date().getTime();">刷新</a></li>
+            </ul>
+        </div>
+        <div class="move">
+        </div>
+        <div class="comment small-font">
+            <div class="danmuBox" style="display: block;">
+                <dl class="danmulist">
+
+                </dl>
+            </div>
+            <div class="comment-bar">
+                <span class="comment-btn">关</span>
+                <div class="comment-info flex">
+                    <span class="comm-btn fill comm-write large-font"><i class="iconfont icon-brush_fill" id="commBtn"></i></span>
+                    <div class="sub"><i></i><var class="qlOLPeople">154</var></div>
+                </div>
+            </div>
+            <!-- 浮动弹幕评论 -->
+            <ul class="talk animated zoomIn delay3">
+            </ul>
+        </div>
+        <!--浮动区域 end-->
+
+        <!--弹出区域 start-->
+        <!--讨论 start-->
+        <div class="float-box black-bg flex-column animated zoomIn comm-box disn" id="shut_comment">
+            <div class="back-live p20 tc">
+                <button class="comm-btn fill close-btn" id="come_back_comment">回到直播</button>
+            </div>
+            <div class="comm-tab big-font tc">
+                <ul class="flex grey gridXb t-fixed" id="comment_where">
+                    <li class="student1"><i class="iconfont icon-group_fill"></i> <b>班级群</b></li>
+                </ul>
+            </div>
+            <div class="comm-content sub">
+                <div class="btn_load_history btnLoadComment">
+                    <i></i>
+                </div>
+                <div class="comm-cons">
+                    <ul class="lastno" id="commentDl">
+                    </ul>
+                    <ul class="lastno" id="commentDl1">
+                    </ul>
+                </div>
+            </div>
+            <div class="comm-enter tc grey bubble_dt">
+                <p>本直播当前为禁言状态</p>
+            </div>
+            <div class="comm-enter gridXt" id="ask_discuss">
+                <div class=" flex">
+                    <div class="comm-input sub">
+                        <div class="type-text big-font danmuInput" contenteditable="plaintext-only" placeholder="来说点什么吧..."
+                            onfocus="if(this.getAttribute(&#39;placeholder&#39;)==&#39;来说点什么吧...&#39;)this.setAttribute(&#39;placeholder&#39;,&#39;&#39;)"
+                            onblur="if(this.getAttribute(&#39;placeholder&#39;)==&#39;&#39;)this.setAttribute(&#39;placeholder&#39;,&#39;来说点什么吧...&#39;)"></div>
+                        <label class="small-font" id="ask_question"><input type="checkbox" class="mr5" id="mr5">提问</label>
+                    </div>
+                    <div class="comm-img big-font gridFourRadius ml10" id="pic"><i class="iconfont icon-picfill"></i></div>
+                    <div class="ml10" style="width:26px;height:26px;transform: scale(0.8,0.8);"><img src="http://sigema.shsmiles.com/addons/dg_chat/resource/img/face.png"
+                            alt="" width="100%" onclick="showEmotionDialog('discuss')"></div>
+                    <button class="comm-send comm-btn fill ml10" id="btn_discuss_send">发送</button>
+                </div>
+                <!-- 表情符号 -->
+                <style>
+                    .enjoy-box{padding: 10px 0;background: #fff;list-style: none;width: 100%;display:none;}
+                        .enjoy-box li{padding: 5px;cursor: pointer;float: left;}
+                        .enjoy-box.on{display: block;}
+                    </style>
+                <ul class="enjoy-box clearfix" id="emoj_list">
+                </ul>
+            </div>
+        </div>
+        <!--讨论 end-->
+        <!--上墙 start-->
+        <div class="float-box black-bg animated fadeIn wall-box disn" id="commentReplyBox">
+            <div class="anbox animated zoomIn delay3">
+                <div class="float-mid radius3 bb">
+                    <div class="con p20 gridXb">
+                        <textarea rows="5" class="w100" placeholder="点击确定后，回复内容会同步到直播主屏" onkeyup=" if($(this).val().length &gt;= 2000) $(this).val($(this).val().substr(0,2000))"></textarea>
+                    </div>
+                    <ul class="flex big-font tc lastno">
+                        <li class="close-btn gridYr" id="cancle">取消</li>
+                        <li class="yel gridYr gene_confirm"><b>确定</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--上墙 end-->
+        <!--语音输入 start-->
+        <div class="e-items voice-Box gridXt disn">
+            <!--录音 start-->
+            <div class="voice">
+                <p class="tc tips pt15">点击开始语音回答，最长60s</p>
+                <p class="tc time pt15" style="display: none;"><var>0</var>s / 60s</p>
+                <div class="con mt20">
+                    <ul class="flex">
+                        <li>
+                            <div class="comm-btn disable gridFourCirle close-btn">取消</div>
+                        </li>
+                        <li>
+                            <div class="recording step1" style="display:block;" id="btnStartRec"><i class="iconfont icon-voicefill"
+                                    style="font-size:35px;"></i></div>
+                            <div class="recording step2" style="display:none;" id="btnStopRec"><i class="iconfont icon-zanting"></i></div>
+                            <div class="recording step3" style="display:none;" id="btnSentRec">点击发送</div>
+
+                        </li>
+                        <li>
+                            <!-- <div class="comm-btn fill shiBo">试播</div> -->
+                            <div class="comm-btn primary gridFourCirle mt15 again" id="btnCancelRec">重录</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="voiceBg"></div>
+            </div>
+        </div>
+        <!--语音输入 end-->
+        <!--text输入 start-->
+        <div class="e-items animated slideInUp b-fixed gridXt text-Box disn">
+            <div class="comm-enter">
+                <div class="flex">
+                    <div class="comm-back big-font gridFourRadius close-btn">返回</div>
+                    <div class="comm-input mr15 sub">
+                        <div class="type-text student big-font speakInput" contenteditable="plaintext-only" placeholder="来说点什么吧..."
+                            onfocus="if(this.getAttribute(&#39;placeholder&#39;)==&#39;来说点什么吧...&#39;)this.setAttribute(&#39;placeholder&#39;,&#39;&#39;)"
+                            onblur="if(this.getAttribute(&#39;placeholder&#39;)==&#39;&#39;)this.setAttribute(&#39;placeholder&#39;,&#39;来说点什么吧...&#39;)"
+                            id="speakInput"></div>
+                    </div>
+                    <div class="mr10" style="width:26px;height:26px;transform: scale(0.8,0.8);"><img src="http://sigema.shsmiles.com/addons/dg_chat/resource/img/face.png"
+                            alt="" width="100%" onclick="showEmotionDialog('main')"></div>
+                    <button class="comm-send comm-btn fill" id="btn_send">发送</button>
+                </div>
+                <ul class="enjoy-box clearfix" id="emoj_list">
+                </ul>
+            </div>
+        </div>
+        <!--text输入 end-->
+        <!--操作 start-->
+        <div class="float-box black-bg animated fadeIn set-box disn">
+            <div class="b-fixed animated slideInUp delay2">
+                <div class="title gridXb tc">
+                    <div class="close fr"></div>
+                    <h2 class="big-font grey">操作设置</h2>
+                </div>
+                <div class="con big-font">
+                    <ul class="m15 lastno">
+                        <a href="./index.php?i=3&c=entry&topic_id=6&do=topic_guest_invite&m=dg_chat" class="flex gridXb">
+                            <li>
+                                <p class="sub">邀请嘉宾</p>
+                            </li>
+                        </a>
+                        <li class="flex gridXb">
+                            <p class="sub">禁言</p>
+                            <div class="switch  active swon " id="allShutup"></div>
+                        </li>
+
+                        <li class="flex gridXb">
+                            <p class="sub">关闭直播</p>
+                            <button class="comm-btn wran small radius3" attr-topicid='6'>关闭直播</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--操作 end-->
+        <!--ppt start-->
+        <div class="float-box black-bg animated zoomIn ppt-box disn">
+            <div class="flex-column h100">
+                <div class="back-live p20 tc">
+                    <button class="comm-btn fill close-btn" id="come_back_ppt">回到直播</button>
+                </div>
+                <div class="sub bb ppt-picbox">
+                    <p class="small-font red p15 tc">点击选中图片在主屏放出。图片推荐尺寸750*375</p>
+                    <ul id="boxli">
+                        <li class="flex gridXt grey pptItem" ppt-id="4" ppt-order="0">
+                            <div class="thumb imgBox" style="background-image: url(http://res.shsmiles.com/1);"
+                                attr-img="http://res.shsmiles.com/1">
+                                <span class="current">当前</span>
+                                <span class="withdraw">撤回</span>
+                            </div>
+                            <div class="ppt-set ml15 big-font sub">
+                                <span class="pptup"><i class="iconfont icon-packup"></i></span>
+                                <span class="pptdown"><i class="iconfont icon-unfold"></i></span>
+                            </div>
+                            <div class="ml20 pptdel"><i class="iconfont icon-empty_fill"></i></div>
+                        </li>
+                        <li class="flex gridXt grey pptItem" ppt-id="5" ppt-order="2">
+                            <div class="thumb imgBox" style="background-image: url(http://res.shsmiles.com/1);"
+                                attr-img="http://res.shsmiles.com/1">
+                                <span class="current"></span>
+                                <span class="withdraw">撤回</span>
+                            </div>
+                            <div class="ppt-set ml15 big-font sub">
+                                <span class="pptup"><i class="iconfont icon-packup"></i></span>
+                                <span class="pptdown"><i class="iconfont icon-unfold"></i></span>
+                            </div>
+                            <div class="ml20 pptdel"><i class="iconfont icon-empty_fill"></i></div>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javaScript:;" class="comm-btn fill camera"><i class="iconfont icon-camera_fill"></i></a>
+            </div>
+        </div>
+        <div class="float-box black-bg animated zoomIn wps-box disn">
+            <div class="flex-column" style="height: 70vh;position:absolute;bottom: 0;left: 0">
+                <div class="back-live p20 tc">
+                    <button class="comm-btn fill close-btn" id="wps_back_comment">回到直播</button>
+                </div>
+                <div class="sub bb ppt-picbox">
+                    <p class="small-font red p15 tc" style="font-size: 18px;font-weight: normal;">支持word、excel、ppt、pdf格式，上传大小不能大于20M</p>
+                </div>
+                <div class="image" style="position:absolute;top:60%;left: 50%;-webkit-transform: translate(-50%,-60%);transform: translate(-50%,-60%);width:80px;height: 80px;background:#ec7c5a;border-radius: 50%;display: flex;justify-content: center;    align-items: center;box-shadow: 0 0 10px rgba(236,124,96,.3)">
+                    <img src="http://sigema.shsmiles.com/addons/dg_chat/resource/bai.png" alt="" id="wps_up" width='40'
+                        height='30'>
+
+                </div>
+
+                <input id="fileupload" type="file" name="wps_up" style="display: none" data-url="./index.php?i=3&c=entry&do=wps_upload&m=dg_chat"
+                    multiple>
+
+                <!-- <a href="javaScript:;" class="comm-btn fill wps-up"></a> -->
+            </div>
+        </div>
+        <style>
+            .comm-cons li img, .sp-box img, .talk p img {
+   width:60px; 
+    height: 60px;
+     max-width: 60px; 
+     max-height: 60px;
+     } 
+</style>
+        <!--ppt end-->
+        <!--弹出区域 end-->
+    </div>
+    <!-- 弹出帮助 -->
+
+    <!-- <div class="tipPic" style="position:fixed; left:0; top: 0; right: 0; right:0; z-index: 999999;">
+			<img src="http://sigema.shsmiles.com/addons/dg_chat/resource/tips.png" width="100%" height="100%">
+		</div> -->
+    <!-- 赞赏 -->
+    <div class="redbag_box redbagBox">
+        <div class="main_box_4 redbag" id="redbag">
+            <div class="redbag_inbox">
+                <div class=" live_redbag">
+                    <a href="javascript:;" class="gene_btn redbag_cancel">&times;</a>
+                    <div class="live_headpic"><img src="http://res.shsmiles.com/images/3/2018/10/M5LwL76k5HL5g77kuyGw2MI65p4YHH.jpg"></div>
+                    <div class="live_towho" attr-id=""></div>
+                    <div class="live_towhy">爱赞赏的人，运气不会太差～</div>
+                    <div class="live_redbaglist">
+                        <ul>
+                            <li class="pay_its" data="2"><a class="rglist" href="javascript:;"><var class="rglist payli">2</var>元</a></li>
+                            <li class="pay_its" data="5"><a class="rglist" href="javascript:;"><var class="rglist payli">5</var>元</a></li>
+                            <li class="pay_its" data="10"><a class="rglist" href="javascript:;"><var class="rglist payli">10</var>元</a></li>
+                            <li class="pay_its" data="50"><a class="rglist" href="javascript:;"><var class="rglist payli">50</var>元</a></li>
+                            <li class="pay_its" data="100"><a class="rglist" href="javascript:;"><var class="rglist payli">100</var>元</a></li>
+                            <li class="pay_its" data="200"><a class="rglist" href="javascript:;"><var class="rglist payli">200</var>元</a></li>
+                        </ul>
+                    </div>
+                    <div class="live_othermoney"><a href="javascript:;" class="rglist"> 其他金额 </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="otherRedmoneyBox" style="display:none;">
+            <div class="otherRedmoney">
+                <div class="otherredmoney_content">
+                    <span class="redbag_head">其他金额<a href="javascript:;" class="gene_btn gene_cancel">&times;</a></span>
+                    <span class="redbag_countarea"><label class="redbag_count_label" for="money">金额(元)</label><input
+                            type="text" value="" id="money" class="money_count" placeholder="可填写2-200"></span>
+                    <span><a href="javascript:;" class="gene_btn gene_confirm" id="confirm_ok">确定</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="redbag_box LmTipsBox" style="display: none;">
+        <div class="main_box_4 redbag">
+            <div class="redbag_inbox">
+                <div class=" live_redbag">
+                    <a href="javascript:;" class="gene_btn redbag_cancel">&times;</a>
+                    <div class="live_headpic"><img src=""></div>
+                    <div class="live_towhy"></div>
+                    <div class="thank_money"><var>30</var></div>
+                    <dl class="thank_p1 rgdetail" style="display:none;">
+                        <dd class="rglist">赏金明细</dd>
+                    </dl>
+                    <div class="redbag_reply">
+                        <div class="thank_box managerThankBox" style="display:none;">
+                            <!--管理员 -->
+
+                            <dl class="redbag_rule">
+                                <dd>微信官方手续费2%</dd>
+                                <dd>被赞赏人得90%</dd>
+                                <dd>直播间得8%</dd>
+                                <dd>微信规定：单人每天只能到账100个红包，超过的红包第二天会到账。</dd>
+                            </dl>
+                            <span class="redbag_rule_2">请在直播间设置页面查看收益明细</span>
+                            <span class="redbag_rule_3" style="display:none;">请关注【夺冠】公众号查看赞赏金额总计</span>
+                        </div>
+                        <span class="replyresult">
+                            <var class="r1">sdfds</var>给了<var class="r2">sdfs</var>一个
+                            <var class="r3"></var>
+                        </span>
+
+                        <div class="thank_box thankBox" style="display:none;">
+                            <!--被赞赏人 -->
+                            <div style="padding-left:2rem;color:#999;">回复Ta</div>
+                            <dl class="thank_choose">
+                                <dd class="rglist" attr-action="baobao">拥抱</dd>
+                                <dd class="rglist" attr-action="loveyou">握手</dd>
+                                <dd class="rglist" attr-action="meme">么么哒</dd>
+                            </dl>
+                        </div>
+                        <div class="thank_box replyresultNone"></div>
+                        <!--没有回复 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹框 -->
+    <style>
+        .flex,.flexC{display: flex;}
+    .flexC{flex-direction: column;}
+    .flex>.sub,.flexC>.sub{flex:1;}
+    .mid{position: absolute;z-index: 1;border-radius: 6px;top: 50%;left: 50%;transform:translate(-50%,-50%);}
+    .popup{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 99;}
+    .popupbg{width: 100%;height: 100%;position: absolute;top: 0;left: 0;background: rgba(0, 0, 0, 0.5);}
+    .popup_box{width: 70%;padding: 15px;background: #fff;}
+    .popup_title{padding-bottom:10px;}
+    .popup_content{padding: 15px 0;}
+    .popup_btn{line-height: 36px;}
+    .popup_btn div{padding: 0 10px;background: #f19937;color: #fff;border-radius: 6px; margin-top: 20px;}
+    .popup_btn div:nth-child(2){border:1px solid  #f19937;color: #f19937;background: #fff;margin-left: 30px;}
+    .popup_btn div:active{background: rgba(241, 153, 55, 0.8);}
+    .popup_btn div:nth-child(2):active{background: rgba(241, 153, 55, 0.1);}
+
+</style>
+    <div class="popup " style="display:none">
+        <div class="popup_box flexC mid">
+            <div class="popup_title tc gridXb"></div>
+            <!-- <div class="popup_content sub">确认删除吗？</div> -->
+            <div class="popup_btn flex tc">
+                <div class="sub" id="submit">确认</div>
+                <div class="sub" id="cancel">取消</div>
+            </div>
+        </div>
+        <div class="popupbg"></div>
+    </div>
+    <div class="reward" id="re_gift">
+        <div class="rewardBox">
+            <div class="close" style="opacity: 1;border-radius: inherit;" id="gift_close"></div>
+            <div id="reward-list-wrap" class="clearfix">
+                <div class="reward-list-wrap">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="swiper-pagination gift_page" style="position:static"></div>
+                <div id="reward-pay-close"></div>
+                <!-- <i class="icon iconfont closeicon" onclick="close_gift_list()">&#xe62d;</i> -->
+            </div>
+            <div id="reward-price-wrap" class="flex">
+                <div class="reward-price-wrap sub">
+                    <div class="rewardL flex sub">
+                        <div class="num_div tc mr10">数量</div>
+                        <div class="gw_num flex">
+                            <span class="iconfont jian">-</span>
+                            <input class="sub tc num" type="num" value="1" id="gift_number">
+                            <input type="hidden" value="0" id="gift_price">
+                            <input type="hidden" value="" id="gift_id">
+                            <span class="iconfont add">+</span>
+                        </div>
+                        <div class="heji sub ml10">合计
+                            <p class="price_div" style="color: #ff5f5f;display: inline-block;">￥
+                                <i id="total_price" gift-money=''>0.00</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pay-btn" style="float:right" id="gift_pay">立即支付</div>
+            </div>
+        </div>
+    </div>
+
+</html>

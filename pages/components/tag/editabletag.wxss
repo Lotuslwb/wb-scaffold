@@ -1,0 +1,23 @@
+.tag-wrapper {
+  position: relative;
+  width: 148rpx;
+  height: 58rpx;
+}
+.tag-input {
+  border: 1rpx solid rgb(153, 153, 153);
+  border-radius: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+  line-height: 58rpx;
+  width: 150rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+.plus-icon {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  top: 13rpx;
+  left: 58rpx;
+}

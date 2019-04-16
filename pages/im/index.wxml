@@ -1,0 +1,168 @@
+<!-- index.wxml -->
+<view class="live flex-column">
+  <!-- 课件 -->
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{false}}" duration="{{durationTime}}" current="{{swiperIndex}}" bindchange="swiperChangeHandle">
+    <block wx:for="{{room_ppt}}">
+      <swiper-item>
+        <image wx:if="{{item.type=='image'}}" src="{{item.url}}" class="slide-image" />
+        <video wx:if="{{item.type=='video'}}" controls poster="{{item.video_img}}" src="{{item.url}}" class="slide-image" id="vedio_{{item.id}}" bindplay='playVideo' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <scroll-view scroll-y scroll-with-animation='{{true}}' class="live-content sub " scroll-top="{{scrollTop}}" style="height:{{height}}">
+    <view class="live-start">本次直播于{{room_info.start_time}}开始</view>
+    <!-- 管理员的说话区 -->
+    <view class="live-bubble  {{isIphX?'live-isIphX':''}}">
+      <view wx:for="{{msgs}}" wx:for-item="item" id='_{{item.msg_id}}'>
+        <block wx:if="{{item.subType!=2}}">
+          <view class="sp-time tc grey">{{item.create_time}}</view>
+          <view class="sp-content flex">
+            <view class="tc mr15">
+              <view class="thumb" style="background-image: url({{item.header_img}});"></view>
+            </view>
+            <view class="sp-con sub">
+              <view class="sp-name small-font">
+                <text class="client_name">{{item.nick_name}}</text>
+                <text class="grey ml5">{{item.role_name ||'普通用户'}}</text>
+              </view>
+              <view wx:if="{{item.msg_type=='voice'}}" bindtap="playRecord" data-content="{{item.content}}" data-msgid="{{item.msg_id}}" data-pptid="{{item.ppt_id}}" class="sp-box sp-admin sp-vioce recordingMsg w1 already {{item.playing?'isPlaying':''}}">
+                <view class="defalut">
+                  <i class="iconfont icon-playon_fill"></i>
+                  播放
+                </view>
+                <view class="playing">
+                  <i class="i1 delay2"></i>
+                  <i class="i2 delay5"></i>
+                  <i class="i3 delay2"></i>
+                  <i class="i4 delay8"></i>
+                  <i class="i5 delay10"></i>
+                  <i class="i6 delay4"></i>
+                  <i class="i7"></i>
+                  <i class="i8"></i>
+                </view>
+                <view class="duration">{{item.last}}'</view>
+              </view>
+              <view wx:elif="{{item.msg_type=='image'}}" class="sp-box sp-admin sp-text already">
+                <p>
+                  <image src="{{item.content}}" data-src="{{item.content}}" lazy-load="{{true}}" mode="aspectFit" bindtap="ImageHandle" class="chat_img"></image>
+                </p>
+              </view>
+              <view wx:else class="sp-box sp-admin sp-text already">
+                <p>{{item.content}}</p>
+              </view>
+              <view msg_id="30" class="retract" wx:if="{{userid==item.user_id || user.role=='manager'}}">
+                <i class="iconfont icon-undo" bindtap="undoHandle" data-msgid="{{item.msg_id}}" data-id="{{item.id}}"></i>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="sp-time tc grey">{{item.content}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- 底部bar -->
+    <block wx:if="{{ !(user.role=='person' && room_info.forbidden_status==1)}}">
+      <view class="live-menu bb gridXt  {{isIphX?'fix-iphonex-button':''}}" wx:if="{{user.is_speak==1}}">
+        <ul class="flex tc lastno">
+          <li class="gridYr voice-btn" data-type='voice' bindtap='changeInputType' wx:if="{{user.role=='manager'||user.role=='presenter'}}">
+            <i class="iconfont icon-voicefill"></i>
+            语音
+          </li>
+          <li class="gridYr text-btn" data-type='text' bindtap='changeInputType'>
+            <i class="iconfont icon-iconzhenghe28"></i>
+            文字
+          </li>
+          <li class="gridYr midea-btn" data-type='image' bindtap='changeInputType'>
+            <i class="iconfont icon-recordfill"></i>
+            图片
+          </li>
+        </ul>
+      </view>
+    </block>
+    <!-- 右侧浮动 -->
+    <view class="fast-set">
+      <ul class="small-font">
+        <li wx:if="{{user.role=='manager'}}">
+          <text class="actions-btn" bindtap='closedRoom'>关闭直播</text>
+        </li>
+        <li wx:if="{{user.role=='manager'}}">
+          <button open-type="share" class="actions-btn">邀请主讲人</button>
+        </li>
+        <li>
+          <text class="actions-btn" bindtap='gotoTop'>回到顶部</text>
+        </li>
+        <li>
+          <text class="actions-btn" bindtap='gotoBottom'>回到底部</text>
+        </li>
+      </ul>
+    </view>
+    <!-- 文本输入 -->
+    <view class="e-items slideInUp b-fixed gridXt text-Box disn {{isIphX?'fix-iphonex-button':''}}" wx:if="{{inputType=='text'}}">
+      <view class="comm-enter">
+        <view class="flex">
+          <view class="comm-back gridFourRadius" data-type='' bindtap='changeInputType'>返回</view>
+          <view class="comm-input mr15 sub">
+            <input value="{{msgContent}}" bindinput='bindKeyInput' class="type-text student speakInput" placeholder="来说点什么吧..."></input>
+          </view>
+          <!-- <view class="mr10" style="width:26px;height:26px;transform: scale(0.8,0.8);">
+            <image class='emoji-btn' src="http://sigema.shsmiles.com/addons/dg_chat/resource/img/face.png"></image>
+          </view> -->
+          <button bindtap="sendTextHanlde" class="comm-send comm-btn fill">发送</button>
+        </view>
+        <ul class="enjoy-box clearfix"></ul>
+      </view>
+    </view>
+    <!-- 语音输入 start -->
+    <view class="e-items voice-Box  b-fixed gridXt disn {{isIphX?'fix-iphonex-button':''}}" wx:if="{{inputType=='voice'}}">
+      <!-- 录音 start -->
+      <view class="voice">
+        <view class="tc tips pt15" wx:if="{{recordStatus==''||recordStatus=='send'}}">
+          点击开始语音回答，最长60s
+        </view>
+        <view class="tc time pt15" wx:else>{{timer}}s / 60s</view>
+        <view class="con mt20">
+          <ul class="flex">
+            <li>
+              <view class="comm-btn disable gridFourCirle" data-type='' data-status='' bindtap='cancelRecord'>
+                取消
+              </view>
+            </li>
+            <li>
+              <view class="recording step1" wx:if="{{recordStatus==''||recordStatus=='send'}}" data-status='running' bindtap='changeRecordStatus'>
+                <!-- 录音 -->
+                <i class="iconfont icon-voicefill" style="font-size:35px;"></i>
+              </view>
+              <view class="recording step2" wx:if="{{recordStatus=='running'}}" data-status='done' bindtap='changeRecordStatus'>
+                <i class="iconfont icon-zanting"></i>
+              </view>
+              <view class="recording step3" wx:if="{{recordStatus=='done'}}" data-status='send' bindtap='changeRecordStatus'>
+                点击发送
+              </view>
+            </li>
+            <li>
+              <!-- <view class="comm-btn fill shiBo">试播</view> -->
+              <view class="comm-btn primary gridFourCirle  again" data-status='' bindtap='changeRecordStatus'>
+                重录
+              </view>
+            </li>
+          </ul>
+        </view>
+        <view class="voiceBg"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 文字图片 直播区域 end -->
+  <!-- <view class="msgs-wrapper">
+    <view class="msgs" wx:for="{{msgs}}">
+      <text class="msg-item">
+        <text class="nickname">{{item.fromAccountNick}}</text>
+        : {{item.content}}
+      </text>
+    </view>
+  </view>
+  <view class="input-section">
+    <input value="{{msgContent}}" placeholder="" bindconfirm="bindConfirm" />
+    <button class="love" bindtap="bindTap"></button>
+  </view> -->
+</view>
